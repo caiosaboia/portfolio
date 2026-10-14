@@ -71,7 +71,7 @@ export const enContent: Content = {
       },
       {
         name: "Quality & Testing",
-        skills: ["Pytest", "TDD", "Vitest", "CI/CD"],
+        skills: ["Pytest", "DeepEval", "MLflow", "TDD", "Vitest", "CI/CD"],
       },
     ],
   },

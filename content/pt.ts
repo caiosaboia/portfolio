@@ -71,7 +71,7 @@ export const ptContent: Content = {
       },
       {
         name: "Qualidade & Testes",
-        skills: ["Pytest", "TDD", "Vitest", "CI/CD"],
+        skills: ["Pytest", "DeepEval", "MLflow", "TDD", "Vitest", "CI/CD"],
       },
     ],
   },
