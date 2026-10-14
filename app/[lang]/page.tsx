@@ -3,6 +3,7 @@ import { getContent, locales } from "@/content";
 import { isLocale } from "@/lib/locale";
 import { Portfolio } from "@/components/Portfolio";
 import { LanguageSwitch } from "@/components/LanguageSwitch";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 export function generateStaticParams() {
   return locales.map((lang) => ({ lang }));
@@ -19,13 +20,17 @@ export default async function LangPage({
   }
   const content = getContent(lang);
   const switchConfig = content.ui.languageSwitch;
+  const themeConfig = content.ui.themeToggle;
 
   const headerActions = (
-    <LanguageSwitch
-      currentLocale={lang}
-      label={switchConfig.label}
-      ariaLabel={switchConfig.ariaLabel}
-    />
+    <>
+      <ThemeToggle ariaLabel={themeConfig.ariaLabel} />
+      <LanguageSwitch
+        currentLocale={lang}
+        label={switchConfig.label}
+        ariaLabel={switchConfig.ariaLabel}
+      />
+    </>
   );
 
   return (

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Locale, getContent, locales } from "@/content";
 import { localeHtmlLangMap, isLocale } from "@/lib/locale";
+import { antiFlashScript } from "@/lib/theme";
 import "../globals.css";
 
 export function generateStaticParams() {
@@ -33,6 +34,9 @@ export default async function LangLayout({
 
   return (
     <html lang={htmlLang} suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: antiFlashScript }} />
+      </head>
       <body>{children}</body>
     </html>
   );
