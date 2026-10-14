@@ -3,6 +3,7 @@ import { Content, Locale } from "@/content";
 import { Header } from "./Header";
 import { Section } from "./Section";
 import { ProjectCard } from "./ProjectCard";
+import { ExperienceItem } from "./ExperienceItem";
 
 export interface PortfolioProps {
   content: Content;
@@ -60,25 +61,24 @@ export function Portfolio({ content, headerActions }: PortfolioProps) {
         </Section>
 
         <Section id="experience" title={content.experience.title}>
-          <div className="space-y-4">
+          <div className="space-y-6">
             {content.experience.items.map((exp, idx) => (
-              <div key={idx}>
-                <h3 className="font-semibold text-zinc-900 dark:text-zinc-100">
-                  {exp.role} — {exp.organization}
-                </h3>
-                <p className="text-xs text-zinc-500">{exp.period}</p>
-                <p className="text-sm mt-1">{exp.summary}</p>
-              </div>
+              <ExperienceItem key={idx} item={exp} />
             ))}
           </div>
         </Section>
 
         <Section id="education" title={content.education.title}>
-          <div className="space-y-2">
+          <div className="space-y-3">
             {content.education.items.map((edu, idx) => (
-              <p key={idx} className="text-sm leading-relaxed">
-                {edu.text}
-              </p>
+              <div
+                key={idx}
+                className="p-4 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white/40 dark:bg-zinc-900/30"
+              >
+                <p className="text-sm font-medium text-zinc-800 dark:text-zinc-200 leading-relaxed">
+                  {edu.text}
+                </p>
+              </div>
             ))}
           </div>
         </Section>
