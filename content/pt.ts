@@ -18,8 +18,8 @@ export const ptContent: Content = {
   about: {
     title: "Sobre",
     paragraphs: [
-      "Graduando em Ciencia de Dados pela Universidade Federal do Ceara (UFC), com atuacao voltada a desenvolvimento em Python, automacao de pipelines de dados ETL e aplicacao de modelos preditivos e sistemas de rating a problemas reais.",
-      "Experiencia pratica na construcao de agentes autonomos, sistemas de recuperacao contextual (RAG) e orquestracao com LangChain e CrewAI. Praticante de Judo e entusiasta de desenvolvimento em ambiente de terminal com Neovim.",
+      "Graduando em Ciencia de Dados pela Universidade Federal do Ceara (UFC), com atuacao voltada ao desenvolvimento de assistentes corporativos com LangGraph, agentes autonomos com CrewAI, recuperacao contextual (RAG) e engenharia de dados em larga escala.",
+      "Experiencia pratica na construcao de pipelines de ETL na GCP, persistencia em PostgreSQL e modelagem preditiva em Python. Apaixonado por desenvolvimento em terminal com Neovim, testes rigorosos com TDD e judoca ha mais de uma decada.",
     ],
   },
   projects: {
@@ -59,15 +59,15 @@ export const ptContent: Content = {
     categories: [
       {
         name: "Linguagens & Ferramentas",
-        skills: ["Python", "SQL", "TypeScript", "Neovim", "Git", "Docker", "Astral uv"],
+        skills: ["Python", "SQL", "TypeScript", "Linguagem R", "Neovim", "Git", "Docker", "Astral uv", "GNU Linux"],
       },
       {
         name: "Engenharia de Dados",
-        skills: ["Ingestao Assincrona", "Modelagem Relacional", "PostgreSQL", "SQLite", "BigQuery", "Parquet", "pandas"],
+        skills: ["ETL/ELT", "Ingestao Assincrona", "Modelagem Relacional", "Data Warehousing", "PostgreSQL", "SQLite", "Google BigQuery", "Parquet", "GraphQL", "pandas"],
       },
       {
         name: "IA & Machine Learning",
-        skills: ["LLMs", "LangChain", "CrewAI", "RAG", "LightGBM", "Random Forest", "Ratings Elo e Glicko-2", "PyTorch"],
+        skills: ["LLMs", "LangGraph", "LangChain", "CrewAI", "RAG", "Qdrant", "FastAPI", "Scikit-Learn", "LightGBM", "Random Forest", "Ratings Elo e Glicko-2", "PyTorch"],
       },
       {
         name: "Qualidade & Testes",
@@ -82,19 +82,19 @@ export const ptContent: Content = {
         role: "Assistente de GenAI",
         organization: "Profectum",
         period: "jan. de 2026 - o momento",
-        summary: "Desenvolvimento de fluxos avancados de IA generativa, orquestracao com LangChain e arquitetura de recuperacao contextual (RAG).",
+        summary: "Construcao de assistente de IA empresarial com LangGraph, Qdrant, FastAPI e Asana MCP com persistencia em PostgreSQL (SDD/TDD). Desenvolvimento de plataforma de auditoria de fornecedores via ETL em GraphQL, dashboards em Streamlit/Power BI e suite com mais de 500 testes em TDD.",
       },
       {
         role: "Estagiario AI Developer",
         organization: "Profectum",
         period: "ago. de 2025 - jan. de 2026",
-        summary: "Construcao de agentes autonomos com CrewAI, pipelines de dados com BigQuery e avaliacao de modelos.",
+        summary: "Criacao de agentes autonomos utilizando CrewAI para analise de atendimento ao cliente, persistindo metricas no PostgreSQL para visualizacao no Power BI. Desenvolvimento de processos de ETL no GCP utilizando SQL avancado para dashboards complexos.",
       },
       {
         role: "Bolsista de Iniciacao Cientifica",
         organization: "Universidade Federal do Ceara",
         period: "mar. de 2024 - jul. de 2025",
-        summary: "Pesquisa em complexidade parametrizada em grafos cordais e grafos temporais com aplicacao em matematica discreta.",
+        summary: "Pesquisa em Complexidade Parametrizada em Grafos Cordais e Grafos Temporais com aplicacoes em matematica discreta e algoritmos exatos.",
       },
     ],
   },

@@ -18,8 +18,8 @@ export const enContent: Content = {
   about: {
     title: "About",
     paragraphs: [
-      "Data Science undergraduate at the Federal University of Ceara (UFC), specializing in Python software development, automated ETL data pipelines, and predictive rating systems applied to real-world datasets.",
-      "Hands-on experience architecting autonomous agents, contextual retrieval-augmented generation (RAG) pipelines, and LLM orchestration with LangChain and CrewAI. Judo practitioner and dedicated terminal/Neovim workflow enthusiast.",
+      "B.Sc. student in Data Science at the Federal University of Ceara (UFC), focused on developing enterprise AI assistants with LangGraph, autonomous multi-agent systems with CrewAI, production RAG, and large-scale data engineering.",
+      "Hands-on experience building GCP data pipelines, PostgreSQL persistence, and predictive modeling in Python. Passionate about terminal-first workflows with Neovim, rigorous TDD, and a dedicated Judoka for over a decade.",
     ],
   },
   projects: {
@@ -59,15 +59,15 @@ export const enContent: Content = {
     categories: [
       {
         name: "Languages & Tools",
-        skills: ["Python", "SQL", "TypeScript", "Neovim", "Git", "Docker", "Astral uv"],
+        skills: ["Python", "SQL", "TypeScript", "R Language", "Neovim", "Git", "Docker", "Astral uv", "GNU Linux"],
       },
       {
         name: "Data Engineering",
-        skills: ["Async Ingestion", "Relational Modeling", "PostgreSQL", "SQLite", "BigQuery", "Parquet", "pandas"],
+        skills: ["ETL/ELT", "Async Ingestion", "Relational Modeling", "Data Warehousing", "PostgreSQL", "SQLite", "Google BigQuery", "Parquet", "GraphQL", "pandas"],
       },
       {
         name: "AI & Machine Learning",
-        skills: ["LLMs", "LangChain", "CrewAI", "RAG", "LightGBM", "Random Forest", "Elo & Glicko-2 Ratings", "PyTorch"],
+        skills: ["LLMs", "LangGraph", "LangChain", "CrewAI", "RAG", "Qdrant", "FastAPI", "Scikit-Learn", "LightGBM", "Random Forest", "Elo & Glicko-2 Ratings", "PyTorch"],
       },
       {
         name: "Quality & Testing",
@@ -82,19 +82,19 @@ export const enContent: Content = {
         role: "GenAI Assistant",
         organization: "Profectum",
         period: "Jan 2026 - Present",
-        summary: "Developing generative AI workflows, LLM orchestration with LangChain, and production retrieval-augmented generation (RAG) architectures.",
+        summary: "Building enterprise AI assistants with LangGraph, Qdrant, FastAPI, and Asana MCP with PostgreSQL persistence using SDD/TDD. Developing a vendor audit platform via GraphQL ETL, Streamlit/Power BI dashboards, and a 500+ test suite in TDD.",
       },
       {
         role: "AI Developer Intern",
         organization: "Profectum",
         period: "Aug 2025 - Jan 2026",
-        summary: "Constructing autonomous multi-agent systems with CrewAI, building BigQuery data pipelines, and evaluating models.",
+        summary: "Creating autonomous multi-agent systems with CrewAI for customer support analysis, storing metrics in PostgreSQL for Power BI visualization. Developing GCP ETL pipelines with advanced SQL for complex dashboards.",
       },
       {
         role: "Scientific Initiation Researcher",
         organization: "Federal University of Ceara",
         period: "Mar 2024 - Jul 2025",
-        summary: "Research on parameterized complexity in chordal and temporal graphs with applications in discrete mathematics.",
+        summary: "Research on Parameterized Complexity in Chordal and Temporal Graphs with applications in discrete mathematics and exact algorithms.",
       },
     ],
   },
