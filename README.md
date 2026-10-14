@@ -8,6 +8,7 @@ Personal portfolio website presenting data engineering, machine learning, and AI
 - Bilingual content (Portuguese and English) with browser-language client redirect
 - Light and dark theme toggle respecting system preference
 - Tested with Vitest and Testing Library
+- Continuous deployment configured on `main` branch
 
 ## Development
 
