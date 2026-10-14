@@ -7,9 +7,17 @@ interface SectionProps {
 }
 
 export function Section({ id, title, children }: SectionProps) {
+  const headingId = `${id}-title`;
   return (
-    <section id={id} className="py-8 border-b border-zinc-200 dark:border-zinc-800 last:border-b-0">
-      <h2 className="text-xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 mb-4">
+    <section
+      id={id}
+      aria-labelledby={headingId}
+      className="py-8 border-b border-zinc-200 dark:border-zinc-800 last:border-b-0"
+    >
+      <h2
+        id={headingId}
+        className="text-xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 mb-4"
+      >
         {title}
       </h2>
       {children}

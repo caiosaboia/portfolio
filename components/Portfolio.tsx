@@ -1,31 +1,29 @@
 import React from "react";
 import { Content, Locale } from "@/content";
+import { Header } from "./Header";
 import { Section } from "./Section";
 
 export interface PortfolioProps {
   content: Content;
   lang: Locale;
+  headerActions?: React.ReactNode;
 }
 
-export function Portfolio({ content }: PortfolioProps) {
+export function Portfolio({ content, headerActions }: PortfolioProps) {
   return (
     <div className="min-h-screen bg-zinc-50 dark:bg-zinc-950 text-zinc-800 dark:text-zinc-200 antialiased transition-colors">
       <main className="max-w-3xl mx-auto px-5 py-12">
-        <header className="mb-10 pb-8 border-b border-zinc-200 dark:border-zinc-800">
-          <h1 className="text-3xl font-extrabold tracking-tight text-zinc-900 dark:text-zinc-100">
-            {content.header.name}
-          </h1>
-          <p className="mt-2 text-base text-zinc-600 dark:text-zinc-400">
-            {content.header.headline}
-          </p>
-        </header>
+        <Header
+          name={content.header.name}
+          headline={content.header.headline}
+          links={content.header.links}
+          actions={headerActions}
+        />
 
         <Section id="about" title={content.about.title}>
-          <div className="space-y-3">
+          <div className="space-y-4 text-zinc-700 dark:text-zinc-300 leading-relaxed text-sm sm:text-base">
             {content.about.paragraphs.map((p, idx) => (
-              <p key={idx} className="leading-relaxed">
-                {p}
-              </p>
+              <p key={idx}>{p}</p>
             ))}
           </div>
         </Section>
@@ -42,11 +40,22 @@ export function Portfolio({ content }: PortfolioProps) {
         </Section>
 
         <Section id="skills" title={content.skills.title}>
-          <div className="space-y-3">
+          <div className="space-y-5">
             {content.skills.categories.map((cat, idx) => (
-              <div key={idx}>
-                <h3 className="font-semibold text-sm text-zinc-900 dark:text-zinc-100">{cat.name}</h3>
-                <p className="text-sm text-zinc-600 dark:text-zinc-400">{cat.skills.join(", ")}</p>
+              <div key={idx} className="space-y-2">
+                <h3 className="font-semibold text-zinc-900 dark:text-zinc-100 uppercase tracking-wider text-xs">
+                  {cat.name}
+                </h3>
+                <ul className="flex flex-wrap gap-2">
+                  {cat.skills.map((skill, sIdx) => (
+                    <li
+                      key={sIdx}
+                      className="text-xs px-2.5 py-1 rounded border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-zinc-700 dark:text-zinc-300 font-mono"
+                    >
+                      {skill}
+                    </li>
+                  ))}
+                </ul>
               </div>
             ))}
           </div>
