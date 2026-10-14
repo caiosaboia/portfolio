@@ -2,6 +2,7 @@ import React from "react";
 import { Content, Locale } from "@/content";
 import { Header } from "./Header";
 import { Section } from "./Section";
+import { ProjectCard } from "./ProjectCard";
 
 export interface PortfolioProps {
   content: Content;
@@ -31,10 +32,7 @@ export function Portfolio({ content, headerActions }: PortfolioProps) {
         <Section id="projects" title={content.projects.title}>
           <div className="space-y-4">
             {content.projects.items.map((item, idx) => (
-              <article key={idx} className="p-4 rounded-md border border-zinc-200 dark:border-zinc-800">
-                <h3 className="font-semibold text-zinc-900 dark:text-zinc-100">{item.title}</h3>
-                <p className="text-sm mt-1">{item.description}</p>
-              </article>
+              <ProjectCard key={idx} project={item} />
             ))}
           </div>
         </Section>

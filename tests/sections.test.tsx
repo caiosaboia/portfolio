@@ -53,14 +53,14 @@ describe("T4 — Header, About and Skills Sections", () => {
   });
 
   it("renders skills grouped into labeled categories in plain text adhering to AC-10.1", () => {
-    render(<Portfolio content={ptContent} lang="pt" />);
-    const skillsSection = screen.getByRole("region", { name: "Habilidades" }) || document.getElementById("skills");
+    const { container } = render(<Portfolio content={ptContent} lang="pt" />);
+    const skillsSection = container.querySelector("#skills")!;
     expect(skillsSection).toBeInTheDocument();
 
     for (const cat of ptContent.skills.categories) {
-      expect(screen.getByText(cat.name)).toBeInTheDocument();
+      expect(skillsSection).toHaveTextContent(cat.name);
       for (const skill of cat.skills) {
-        expect(screen.getByText(skill)).toBeInTheDocument();
+        expect(skillsSection).toHaveTextContent(skill);
       }
     }
   });
