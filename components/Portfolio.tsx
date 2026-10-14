@@ -13,8 +13,8 @@ export interface PortfolioProps {
 
 export function Portfolio({ content, headerActions }: PortfolioProps) {
   return (
-    <div className="min-h-screen bg-zinc-50 dark:bg-zinc-950 text-zinc-800 dark:text-zinc-200 antialiased transition-colors">
-      <main className="max-w-3xl mx-auto px-5 py-12">
+    <div className="min-h-screen bg-zinc-50 dark:bg-zinc-950 text-zinc-800 dark:text-zinc-200 antialiased selection:bg-zinc-900 selection:text-zinc-50 dark:selection:bg-zinc-100 dark:selection:text-zinc-900 transition-colors">
+      <main className="max-w-3xl mx-auto px-5 sm:px-8 py-12 sm:py-16">
         <Header
           name={content.header.name}
           headline={content.header.headline}
@@ -23,7 +23,7 @@ export function Portfolio({ content, headerActions }: PortfolioProps) {
         />
 
         <Section id="about" title={content.about.title}>
-          <div className="space-y-4 text-zinc-700 dark:text-zinc-300 leading-relaxed text-sm sm:text-base">
+          <div className="space-y-4 text-zinc-700 dark:text-zinc-300 leading-relaxed text-sm sm:text-base text-pretty">
             {content.about.paragraphs.map((p, idx) => (
               <p key={idx}>{p}</p>
             ))}
@@ -39,17 +39,17 @@ export function Portfolio({ content, headerActions }: PortfolioProps) {
         </Section>
 
         <Section id="skills" title={content.skills.title}>
-          <div className="space-y-5">
+          <div className="space-y-6">
             {content.skills.categories.map((cat, idx) => (
-              <div key={idx} className="space-y-2">
-                <h3 className="font-semibold text-zinc-900 dark:text-zinc-100 uppercase tracking-wider text-xs">
+              <div key={idx} className="space-y-2.5">
+                <h3 className="font-mono text-xs font-semibold tracking-wider text-zinc-500 dark:text-zinc-400 uppercase">
                   {cat.name}
                 </h3>
                 <ul className="flex flex-wrap gap-2">
                   {cat.skills.map((skill, sIdx) => (
                     <li
                       key={sIdx}
-                      className="text-xs px-2.5 py-1 rounded border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-zinc-700 dark:text-zinc-300 font-mono"
+                      className="font-mono text-xs px-2.5 py-1 rounded-md border border-zinc-200/80 dark:border-zinc-800/80 bg-white/70 dark:bg-zinc-900/50 text-zinc-700 dark:text-zinc-300 backdrop-blur-xs transition-colors hover:border-zinc-300 dark:hover:border-zinc-700"
                     >
                       {skill}
                     </li>
@@ -61,7 +61,7 @@ export function Portfolio({ content, headerActions }: PortfolioProps) {
         </Section>
 
         <Section id="experience" title={content.experience.title}>
-          <div className="space-y-6">
+          <div className="space-y-7">
             {content.experience.items.map((exp, idx) => (
               <ExperienceItem key={idx} item={exp} />
             ))}
@@ -73,9 +73,9 @@ export function Portfolio({ content, headerActions }: PortfolioProps) {
             {content.education.items.map((edu, idx) => (
               <div
                 key={idx}
-                className="p-4 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white/40 dark:bg-zinc-900/30"
+                className="p-4 sm:p-5 rounded-xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/70 dark:bg-zinc-900/50 backdrop-blur-xs"
               >
-                <p className="text-sm font-medium text-zinc-800 dark:text-zinc-200 leading-relaxed">
+                <p className="text-sm font-medium text-zinc-800 dark:text-zinc-200 leading-relaxed text-pretty">
                   {edu.text}
                 </p>
               </div>

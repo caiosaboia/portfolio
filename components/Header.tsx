@@ -10,20 +10,27 @@ interface HeaderProps {
 
 export function Header({ name, headline, links, actions }: HeaderProps) {
   return (
-    <header className="mb-10 pb-8 border-b border-zinc-200 dark:border-zinc-800">
-      <div className="flex items-start justify-between gap-4">
-        <div>
-          <h1 className="text-3xl font-extrabold tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-4xl">
+    <header className="mb-12 pb-10 border-b border-zinc-200/80 dark:border-zinc-800/80">
+      <div className="flex flex-col-reverse sm:flex-row sm:items-start sm:justify-between gap-6">
+        <div className="space-y-3 max-w-2xl">
+          <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 text-balance">
             {name}
           </h1>
-          <p className="mt-3 text-base text-zinc-600 dark:text-zinc-400 font-medium leading-relaxed">
+          <p className="text-sm sm:text-base text-zinc-600 dark:text-zinc-400 leading-relaxed text-pretty">
             {headline}
           </p>
         </div>
-        {actions ? <div className="flex items-center gap-2 pt-1">{actions}</div> : null}
+        {actions ? (
+          <div className="flex items-center gap-2 self-end sm:self-start shrink-0">
+            {actions}
+          </div>
+        ) : null}
       </div>
 
-      <nav aria-label="Social and contact links" className="mt-6 flex flex-wrap gap-x-5 gap-y-2">
+      <nav
+        aria-label="Social and contact links"
+        className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-2.5"
+      >
         {links.map((link) => {
           const isExternal = link.url.startsWith("http");
           return (
@@ -32,7 +39,7 @@ export function Header({ name, headline, links, actions }: HeaderProps) {
               href={link.url}
               target={isExternal ? "_blank" : undefined}
               rel={isExternal ? "noopener noreferrer" : undefined}
-              className="text-sm font-medium text-zinc-700 hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-white underline underline-offset-4 transition-colors"
+              className="text-xs sm:text-sm font-medium text-zinc-600 hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-zinc-100 underline underline-offset-4 decoration-zinc-300 dark:decoration-zinc-700 hover:decoration-zinc-900 dark:hover:decoration-zinc-100 transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400 rounded-sm"
             >
               {link.label}
             </a>

@@ -7,39 +7,39 @@ interface ProjectCardProps {
 
 export function ProjectCard({ project }: ProjectCardProps) {
   return (
-    <article className="p-5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white/50 dark:bg-zinc-900/40 space-y-3 transition-colors">
-      <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
-        <h3 className="text-lg font-bold text-zinc-900 dark:text-zinc-100 font-mono">
+    <article className="group rounded-xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/70 dark:bg-zinc-900/50 p-5 sm:p-6 backdrop-blur-xs transition-all duration-200 hover:border-zinc-300 dark:hover:border-zinc-700 hover:shadow-xs space-y-3.5">
+      <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1.5">
+        <h3 className="text-base sm:text-lg font-mono font-semibold tracking-tight text-zinc-900 dark:text-zinc-100">
           {project.title}
         </h3>
-        <span className="text-xs font-semibold text-zinc-600 dark:text-zinc-400 bg-zinc-100 dark:bg-zinc-800/80 px-2.5 py-0.5 rounded border border-zinc-200/60 dark:border-zinc-700/60">
+        <span className="self-start sm:self-auto tabular-nums font-mono text-xs font-medium text-zinc-600 dark:text-zinc-400 bg-zinc-100/90 dark:bg-zinc-800/80 px-2.5 py-0.5 rounded-full border border-zinc-200/60 dark:border-zinc-700/60">
           {project.highlight}
         </span>
       </div>
 
-      <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+      <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed text-pretty">
         {project.description}
       </p>
 
-      <ul className="flex flex-wrap gap-1.5 pt-1" aria-label="Project technologies">
+      <ul className="flex flex-wrap gap-1.5 pt-0.5" aria-label="Project technologies">
         {project.tags.map((tag, idx) => (
           <li
             key={idx}
-            className="text-xs px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400"
+            className="font-mono text-xs px-2 py-0.5 rounded-md bg-zinc-100/80 dark:bg-zinc-800/80 text-zinc-600 dark:text-zinc-400 border border-zinc-200/50 dark:border-zinc-700/40"
           >
             {tag}
           </li>
         ))}
       </ul>
 
-      <div className="pt-2 flex flex-wrap gap-4 border-t border-zinc-100 dark:border-zinc-800/60">
+      <div className="pt-3 flex flex-wrap gap-4 border-t border-zinc-100 dark:border-zinc-800/60">
         {project.links.map((link, idx) => (
           <a
             key={idx}
             href={link.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-xs font-semibold text-zinc-800 dark:text-zinc-200 underline underline-offset-4 hover:text-black dark:hover:text-white transition-colors"
+            className="text-xs font-mono font-medium text-zinc-900 dark:text-zinc-100 underline decoration-zinc-300 dark:decoration-zinc-700 underline-offset-4 hover:decoration-zinc-900 dark:hover:decoration-zinc-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400 dark:focus-visible:ring-zinc-600 rounded-xs transition-colors"
           >
             {link.label}
           </a>

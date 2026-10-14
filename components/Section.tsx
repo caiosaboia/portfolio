@@ -12,11 +12,11 @@ export function Section({ id, title, children }: SectionProps) {
     <section
       id={id}
       aria-labelledby={headingId}
-      className="py-8 border-b border-zinc-200 dark:border-zinc-800 last:border-b-0"
+      className="py-10 sm:py-12 border-b border-zinc-200/70 dark:border-zinc-800/70 last:border-b-0"
     >
       <h2
         id={headingId}
-        className="text-xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 mb-4"
+        className="text-lg sm:text-xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 mb-6"
       >
         {title}
       </h2>

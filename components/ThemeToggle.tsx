@@ -46,7 +46,7 @@ export function ThemeToggle({ ariaLabel }: ThemeToggleProps) {
       type="button"
       onClick={toggle}
       aria-label={ariaLabel}
-      className="text-xs font-mono font-semibold px-2.5 py-1 rounded border border-zinc-300 dark:border-zinc-700 hover:border-zinc-500 dark:hover:border-zinc-500 bg-white dark:bg-zinc-900 text-zinc-700 dark:text-zinc-300 transition-colors"
+      className="inline-flex items-center justify-center text-xs font-mono font-semibold px-2.5 py-1 rounded-md border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-zinc-700 dark:text-zinc-300 hover:border-zinc-300 dark:hover:border-zinc-700 hover:text-zinc-950 dark:hover:text-zinc-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400 dark:focus-visible:ring-zinc-600 transition-all duration-150 cursor-pointer"
     >
       {theme === "dark" ? "LIGHT" : "DARK"}
     </button>
