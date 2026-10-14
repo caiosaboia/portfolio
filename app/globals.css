@@ -5,8 +5,29 @@
 @layer base {
   html {
     color-scheme: light dark;
+    scroll-behavior: smooth;
   }
   body {
     text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+.section-cv {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 250px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }

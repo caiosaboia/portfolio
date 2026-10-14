@@ -7,7 +7,7 @@ interface ExperienceItemProps {
 
 export function ExperienceItem({ item }: ExperienceItemProps) {
   return (
-    <article className="relative pl-6 sm:pl-7 border-l border-zinc-200 dark:border-zinc-800 space-y-1.5 transition-colors">
+    <article className="relative pl-6 sm:pl-7 border-l border-zinc-200 dark:border-zinc-800 space-y-1.5 motion-safe:transition-colors">
       <div
         className="absolute -left-[4.5px] top-2 size-2 rounded-full bg-zinc-300 dark:bg-zinc-700 ring-4 ring-zinc-50 dark:ring-zinc-950"
         aria-hidden="true"
@@ -20,7 +20,7 @@ export function ExperienceItem({ item }: ExperienceItemProps) {
           {item.period}
         </time>
       </div>
-      <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed text-pretty">
+      <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed text-pretty max-w-prose">
         {item.summary}
       </p>
     </article>

@@ -7,7 +7,7 @@ interface ProjectCardProps {
 
 export function ProjectCard({ project }: ProjectCardProps) {
   return (
-    <article className="group rounded-xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/70 dark:bg-zinc-900/50 p-5 sm:p-6 backdrop-blur-xs transition-all duration-200 hover:border-zinc-300 dark:hover:border-zinc-700 hover:shadow-xs space-y-3.5">
+    <article className="group rounded-xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/70 dark:bg-zinc-900/50 p-5 sm:p-6 backdrop-blur-xs motion-safe:transition-all duration-200 hover:border-zinc-300 dark:hover:border-zinc-700 hover:shadow-xs space-y-3.5">
       <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1.5">
         <h3 className="text-base sm:text-lg font-mono font-semibold tracking-tight text-zinc-900 dark:text-zinc-100">
           {project.title}
@@ -17,7 +17,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
         </span>
       </div>
 
-      <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed text-pretty">
+      <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed text-pretty max-w-prose">
         {project.description}
       </p>
 
@@ -39,7 +39,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
             href={link.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-xs font-mono font-medium text-zinc-900 dark:text-zinc-100 underline decoration-zinc-300 dark:decoration-zinc-700 underline-offset-4 hover:decoration-zinc-900 dark:hover:decoration-zinc-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400 dark:focus-visible:ring-zinc-600 rounded-xs transition-colors"
+            className="text-xs font-mono font-medium text-zinc-900 dark:text-zinc-100 underline decoration-zinc-300 dark:decoration-zinc-700 underline-offset-4 hover:decoration-zinc-900 dark:hover:decoration-zinc-100 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-zinc-950 focus-visible:ring-zinc-400 dark:focus-visible:ring-zinc-600 rounded-xs motion-safe:transition-colors py-0.5"
           >
             {link.label}
           </a>
