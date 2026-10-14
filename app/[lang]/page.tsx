@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { getContent, locales } from "@/content";
 import { isLocale } from "@/lib/locale";
 import { Portfolio } from "@/components/Portfolio";
+import { LanguageSwitch } from "@/components/LanguageSwitch";
 
 export function generateStaticParams() {
   return locales.map((lang) => ({ lang }));
@@ -17,5 +18,21 @@ export default async function LangPage({
     notFound();
   }
   const content = getContent(lang);
-  return <Portfolio content={content} lang={lang} />;
+  const switchConfig = content.ui.languageSwitch;
+
+  const headerActions = (
+    <LanguageSwitch
+      currentLocale={lang}
+      label={switchConfig.label}
+      ariaLabel={switchConfig.ariaLabel}
+    />
+  );
+
+  return (
+    <Portfolio
+      content={content}
+      lang={lang}
+      headerActions={headerActions}
+    />
+  );
 }
