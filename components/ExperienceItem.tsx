@@ -12,7 +12,7 @@ export function ExperienceItem({ item, isLast = false }: ExperienceItemProps) {
       {/* Timeline track with node and continuous connector line */}
       <div className="relative flex flex-col items-center self-stretch shrink-0 w-4 sm:w-5">
         <div
-          className="size-2 rounded-full bg-zinc-300 dark:bg-zinc-700 ring-4 ring-zinc-50 dark:ring-zinc-950 group-hover:bg-zinc-500 dark:group-hover:bg-zinc-400 mt-1.5 motion-safe:transition-colors"
+          className="size-2 rounded-full bg-zinc-300 dark:bg-zinc-700 ring-4 ring-zinc-50 dark:ring-zinc-950 group-hover:bg-zinc-600 dark:group-hover:bg-zinc-200 group-hover:scale-125 mt-1.5 motion-safe:transition-all duration-200"
           aria-hidden="true"
         />
         {!isLast && (
@@ -29,7 +29,7 @@ export function ExperienceItem({ item, isLast = false }: ExperienceItemProps) {
           <h3 className="text-sm sm:text-base font-semibold tracking-tight text-zinc-900 dark:text-zinc-100">
             {item.role} <span className="text-zinc-400 font-normal" aria-hidden="true">|</span> <span className="text-zinc-600 dark:text-zinc-400 font-normal">{item.organization}</span>
           </h3>
-          <time className="tabular-nums font-mono text-xs text-zinc-500 dark:text-zinc-400 bg-zinc-100/70 dark:bg-zinc-900/60 px-2 py-0.5 rounded border border-zinc-200/60 dark:border-zinc-800/60 shrink-0 self-start sm:self-auto">
+          <time className="tabular-nums font-mono text-xs text-zinc-500 dark:text-zinc-400 group-hover:text-zinc-800 dark:group-hover:text-zinc-200 bg-zinc-100/70 dark:bg-zinc-900/60 px-2 py-0.5 rounded border border-zinc-200/60 dark:border-zinc-800/60 group-hover:border-zinc-300 dark:group-hover:border-zinc-700 shadow-2xs shrink-0 self-start sm:self-auto motion-safe:transition-colors">
             {item.period}
           </time>
         </div>

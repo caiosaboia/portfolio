@@ -90,7 +90,7 @@ export function Portfolio({ content, lang, headerActions }: PortfolioProps) {
             {content.education.items.map((edu, idx) => (
               <div
                 key={idx}
-                className="p-5 rounded-xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/70 dark:bg-zinc-900/50 backdrop-blur-xs shadow-[inset_0_1px_0_0_rgba(255,255,255,0.7)] dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.04)]"
+                className="p-5 rounded-xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/70 dark:bg-zinc-900/40 backdrop-blur-xs shadow-[inset_0_1px_0_0_rgba(255,255,255,0.7)] dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.04)] motion-safe:transition-all duration-200 hover:border-zinc-300 dark:hover:border-zinc-700 hover:shadow-xs"
               >
                 <p className="text-sm font-medium text-zinc-800 dark:text-zinc-200 leading-relaxed text-pretty max-w-prose">
                   {edu.text}

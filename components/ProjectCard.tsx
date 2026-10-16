@@ -7,12 +7,12 @@ interface ProjectCardProps {
 
 export function ProjectCard({ project }: ProjectCardProps) {
   return (
-    <article className="group relative rounded-xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/70 dark:bg-zinc-900/40 p-5 sm:p-6 backdrop-blur-xs shadow-[inset_0_1px_0_0_rgba(255,255,255,0.7)] dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.04)] motion-safe:transition-all duration-200 hover:border-zinc-300 dark:hover:border-zinc-700 hover:shadow-xs space-y-3.5">
+    <article className="group relative rounded-xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/70 dark:bg-zinc-900/40 p-5 sm:p-6 backdrop-blur-xs shadow-[inset_0_1px_0_0_rgba(255,255,255,0.7)] dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.04)] motion-safe:transition-all duration-200 motion-safe:hover:-translate-y-0.5 hover:border-zinc-300 dark:hover:border-zinc-700 hover:shadow-xs space-y-3.5">
       <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1.5">
         <h3 className="text-base sm:text-lg font-mono font-semibold tracking-tight text-zinc-900 dark:text-zinc-100 group-hover:text-black dark:group-hover:text-white transition-colors">
           {project.title}
         </h3>
-        <span className="self-start sm:self-auto tabular-nums font-mono text-xs font-medium text-zinc-600 dark:text-zinc-400 bg-zinc-100/90 dark:bg-zinc-800/80 px-2.5 py-0.5 rounded-full border border-zinc-200/60 dark:border-zinc-700/60">
+        <span className="self-start sm:self-auto tabular-nums font-mono text-xs font-medium text-zinc-700 dark:text-zinc-300 bg-zinc-100/90 dark:bg-zinc-800/80 px-2.5 py-0.5 rounded-full border border-zinc-200/70 dark:border-zinc-700/60 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.7)] dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.04)]">
           {project.highlight}
         </span>
       </div>
@@ -25,7 +25,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
         {project.tags.map((tag, idx) => (
           <li
             key={idx}
-            className="font-mono text-xs px-2 py-0.5 rounded-md bg-zinc-100/80 dark:bg-zinc-800/80 text-zinc-600 dark:text-zinc-400 border border-zinc-200/50 dark:border-zinc-700/40"
+            className="font-mono text-xs px-2 py-0.5 rounded-md bg-zinc-100/80 dark:bg-zinc-800/80 text-zinc-600 dark:text-zinc-400 border border-zinc-200/50 dark:border-zinc-700/40 motion-safe:transition-colors hover:text-zinc-900 dark:hover:text-zinc-200 hover:border-zinc-300 dark:hover:border-zinc-600"
           >
             {tag}
           </li>
@@ -39,7 +39,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
             href={link.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="group/link inline-flex items-center gap-1 text-xs font-mono font-medium text-zinc-900 dark:text-zinc-100 underline decoration-zinc-300 dark:decoration-zinc-700 underline-offset-4 hover:decoration-zinc-900 dark:hover:decoration-zinc-100 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-zinc-950 focus-visible:ring-zinc-400 dark:focus-visible:ring-zinc-600 rounded-xs motion-safe:transition-colors py-0.5"
+            className="group/link inline-flex items-center gap-1 text-xs font-mono font-medium text-zinc-900 dark:text-zinc-100 underline decoration-zinc-300 dark:decoration-zinc-700 underline-offset-4 hover:decoration-zinc-900 dark:hover:decoration-zinc-100 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-zinc-950 focus-visible:ring-zinc-400 dark:focus-visible:ring-zinc-600 rounded-xs motion-safe:transition-all active:translate-y-px py-0.5"
           >
             <span>{link.label}</span>
             <svg
