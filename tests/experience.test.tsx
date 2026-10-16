@@ -45,6 +45,18 @@ describe("T6 — Experience and Education Sections", () => {
     expect(periods[2]).toBe("Mar 2024 - Jul 2025");
   });
 
+  it("renders a continuous timeline track where non-last items have connector lines and the last item terminates cleanly", () => {
+    const { container } = render(<Portfolio content={ptContent} lang="pt" />);
+    const items = container.querySelectorAll("section#experience article");
+    expect(items).toHaveLength(3);
+
+    // First two items have connector lines (w-px inside the track)
+    expect(items[0].querySelector("div.w-px")).not.toBeNull();
+    expect(items[1].querySelector("div.w-px")).not.toBeNull();
+    // Last item does not render a dangling connector line
+    expect(items[2].querySelector("div.w-px")).toBeNull();
+  });
+
   it("renders education text exactly without any four-digit year adhering to AC-09.1", () => {
     const { container: ptContainer, unmount } = render(
       <Portfolio content={ptContent} lang="pt" />

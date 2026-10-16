@@ -73,9 +73,13 @@ export function Portfolio({ content, lang, headerActions }: PortfolioProps) {
         </Section>
 
         <Section id="experience" title={content.experience.title}>
-          <div className="space-y-7">
+          <div className="flex flex-col">
             {content.experience.items.map((exp, idx) => (
-              <ExperienceItem key={idx} item={exp} />
+              <ExperienceItem
+                key={idx}
+                item={exp}
+                isLast={idx === content.experience.items.length - 1}
+              />
             ))}
           </div>
         </Section>
