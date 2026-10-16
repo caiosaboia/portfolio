@@ -28,6 +28,14 @@ function getServerSnapshot(): Theme {
 export function ThemeToggle({ ariaLabel }: ThemeToggleProps) {
   const theme = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 
+  React.useEffect(() => {
+    if (theme === "dark") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [theme]);
+
   const toggle = () => {
     const next: Theme = theme === "dark" ? "light" : "dark";
     localStorage.setItem(THEME_KEY, next);
