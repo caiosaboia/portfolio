@@ -13,17 +13,30 @@ describe("T4 — Header, About and Skills Sections", () => {
     expect(h1s[0]).toHaveTextContent("Caio Saboia");
   });
 
-  it("renders exact headlines adhering to AC-05.2", () => {
-    const { unmount } = render(<Portfolio content={ptContent} lang="pt" />);
+  it("renders exact headlines and tags adhering to AC-05.2", () => {
+    const { container: ptContainer, unmount } = render(
+      <Portfolio content={ptContent} lang="pt" />
+    );
+    const ptHeader = ptContainer.querySelector("header");
+    expect(ptHeader).not.toBeNull();
     expect(
-      screen.getByText("Cientista de Dados | Engenharia de Dados, GenAI, LLM e RAG | Judoca")
+      screen.getByText("Data Scientist | GenAI | LLM | CrewAI | LLM Evaluate | RAG | SQL | Judoca")
     ).toBeInTheDocument();
+    expect(ptHeader?.textContent).toContain("Data Scientist");
+    expect(ptHeader?.textContent).toContain("CrewAI");
+    expect(ptHeader?.textContent).toContain("LLM Evaluate");
+    expect(ptHeader?.textContent).toContain("Judoca");
     unmount();
 
-    render(<Portfolio content={enContent} lang="en" />);
+    const { container: enContainer } = render(
+      <Portfolio content={enContent} lang="en" />
+    );
+    const enHeader = enContainer.querySelector("header");
+    expect(enHeader).not.toBeNull();
     expect(
-      screen.getByText("Data Scientist | Data Engineering, GenAI, LLM & RAG | Judoka")
+      screen.getByText("Data Scientist | GenAI | LLM | CrewAI | LLM Evaluate | RAG | SQL | Judoka")
     ).toBeInTheDocument();
+    expect(enHeader?.textContent).toContain("Judoka");
   });
 
   it("renders 4 links with correct hrefs, target and rel adhering to AC-05.3 and AC-05.4", () => {

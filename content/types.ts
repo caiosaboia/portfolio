@@ -40,6 +40,7 @@ export interface Content {
   header: {
     name: string;
     headline: string;
+    tags: string[];
     links: SocialLink[];
   };
   about: {

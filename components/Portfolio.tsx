@@ -30,6 +30,7 @@ export function Portfolio({ content, lang, headerActions }: PortfolioProps) {
         <Header
           name={content.header.name}
           headline={content.header.headline}
+          tags={content.header.tags}
           links={content.header.links}
           actions={headerActions}
         />

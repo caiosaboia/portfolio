@@ -7,7 +7,17 @@ export const ptContent: Content = {
   },
   header: {
     name: "Caio Saboia",
-    headline: "Cientista de Dados | Engenharia de Dados, GenAI, LLM e RAG | Judoca",
+    headline: "Data Scientist | GenAI | LLM | CrewAI | LLM Evaluate | RAG | SQL | Judoca",
+    tags: [
+      "Data Scientist",
+      "GenAI",
+      "LLM",
+      "CrewAI",
+      "LLM Evaluate",
+      "RAG",
+      "SQL",
+      "Judoca",
+    ],
     links: [
       { label: "GitHub", url: "https://github.com/caiosaboia" },
       { label: "Kaggle", url: "https://www.kaggle.com/caiosaboia" },

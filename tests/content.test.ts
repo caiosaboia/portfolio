@@ -64,11 +64,31 @@ describe("Content Integrity & Parity", () => {
 
   it("has exact headlines adhering to AC-05.2", () => {
     expect(ptContent.header.headline).toBe(
-      "Cientista de Dados | Engenharia de Dados, GenAI, LLM e RAG | Judoca"
+      "Data Scientist | GenAI | LLM | CrewAI | LLM Evaluate | RAG | SQL | Judoca"
     );
     expect(enContent.header.headline).toBe(
-      "Data Scientist | Data Engineering, GenAI, LLM & RAG | Judoka"
+      "Data Scientist | GenAI | LLM | CrewAI | LLM Evaluate | RAG | SQL | Judoka"
     );
+    expect(ptContent.header.tags).toEqual([
+      "Data Scientist",
+      "GenAI",
+      "LLM",
+      "CrewAI",
+      "LLM Evaluate",
+      "RAG",
+      "SQL",
+      "Judoca",
+    ]);
+    expect(enContent.header.tags).toEqual([
+      "Data Scientist",
+      "GenAI",
+      "LLM",
+      "CrewAI",
+      "LLM Evaluate",
+      "RAG",
+      "SQL",
+      "Judoka",
+    ]);
   });
 
   it("has exact social and contact links adhering to AC-05.3", () => {

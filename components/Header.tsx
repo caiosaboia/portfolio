@@ -4,21 +4,32 @@ import { SocialLink } from "@/content";
 interface HeaderProps {
   name: string;
   headline: string;
+  tags?: string[];
   links: SocialLink[];
   actions?: React.ReactNode;
 }
 
-export function Header({ name, headline, links, actions }: HeaderProps) {
+export function Header({ name, headline, tags, links, actions }: HeaderProps) {
+  const displayTags = tags && tags.length > 0 ? tags : headline.split(" | ");
+
   return (
     <header className="mb-12 pb-10 border-b border-zinc-200/80 dark:border-zinc-800/80">
       <div className="flex flex-col-reverse sm:flex-row sm:items-start sm:justify-between gap-6">
-        <div className="space-y-3 max-w-2xl">
+        <div className="space-y-3.5 max-w-2xl">
           <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 text-balance">
             {name}
           </h1>
-          <p className="text-sm sm:text-base text-zinc-600 dark:text-zinc-400 leading-relaxed text-pretty">
-            {headline}
-          </p>
+          <p className="sr-only">{headline}</p>
+          <div className="flex flex-wrap items-center gap-1.5 sm:gap-2" aria-label="Professional focus tags">
+            {displayTags.map((tag, idx) => (
+              <span
+                key={idx}
+                className="font-mono text-xs px-2.5 py-1 rounded-md border border-zinc-200/80 dark:border-zinc-800/80 bg-white/70 dark:bg-zinc-900/50 text-zinc-700 dark:text-zinc-300 backdrop-blur-xs font-medium motion-safe:transition-colors hover:border-zinc-300 dark:hover:border-zinc-700 hover:text-zinc-950 dark:hover:text-zinc-50 shadow-2xs"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
         </div>
         {actions ? (
           <div className="flex items-center gap-2 self-end sm:self-start shrink-0">
