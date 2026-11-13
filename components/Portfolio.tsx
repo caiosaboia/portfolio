@@ -6,6 +6,7 @@ import { ProjectCard } from "./ProjectCard";
 import { ExperienceItem } from "./ExperienceItem";
 import { ScrollCraftProgress } from "./ScrollCraftProgress";
 import { ScrollSpyNav } from "./ScrollSpyNav";
+import { ScrollReveal } from "./ScrollReveal";
 
 export interface PortfolioProps {
   content: Content;
@@ -47,17 +48,21 @@ export function Portfolio({ content, lang, headerActions }: PortfolioProps) {
         />
 
         <Section id="about" title={content.about.title}>
-          <div className="space-y-4 text-zinc-700 dark:text-zinc-300 leading-relaxed text-sm sm:text-base text-pretty max-w-prose">
-            {content.about.paragraphs.map((p, idx) => (
-              <p key={idx}>{p}</p>
-            ))}
-          </div>
+          <ScrollReveal>
+            <div className="space-y-4 text-zinc-700 dark:text-zinc-300 leading-relaxed text-sm sm:text-base text-pretty max-w-prose">
+              {content.about.paragraphs.map((p, idx) => (
+                <p key={idx}>{p}</p>
+              ))}
+            </div>
+          </ScrollReveal>
         </Section>
 
         <Section id="projects" title={content.projects.title}>
           <div className="space-y-4">
             {content.projects.items.map((item, idx) => (
-              <ProjectCard key={idx} project={item} />
+              <ScrollReveal key={idx} delay={idx * 60}>
+                <ProjectCard project={item} />
+              </ScrollReveal>
             ))}
           </div>
         </Section>
@@ -65,21 +70,23 @@ export function Portfolio({ content, lang, headerActions }: PortfolioProps) {
         <Section id="skills" title={content.skills.title}>
           <div className="space-y-6">
             {content.skills.categories.map((cat, idx) => (
-              <div key={idx} className="space-y-2.5">
-                <h3 className="font-mono text-xs font-medium tracking-normal text-zinc-500 dark:text-zinc-400">
-                  {cat.name}
-                </h3>
-                <ul className="flex flex-wrap gap-2">
-                  {cat.skills.map((skill, sIdx) => (
-                    <li
-                      key={sIdx}
-                      className="font-mono text-xs px-2.5 py-1 rounded-md border border-zinc-200/80 dark:border-zinc-800/80 bg-white/70 dark:bg-zinc-900/50 text-zinc-700 dark:text-zinc-300 backdrop-blur-xs motion-safe:transition-all hover:border-zinc-300 dark:hover:border-zinc-700 hover:text-zinc-950 dark:hover:text-zinc-50 hover:bg-white dark:hover:bg-zinc-900 shadow-2xs"
-                    >
-                      {skill}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              <ScrollReveal key={idx} delay={idx * 50}>
+                <div className="space-y-2.5">
+                  <h3 className="font-mono text-xs font-medium tracking-normal text-zinc-500 dark:text-zinc-400">
+                    {cat.name}
+                  </h3>
+                  <ul className="flex flex-wrap gap-2">
+                    {cat.skills.map((skill, sIdx) => (
+                      <li
+                        key={sIdx}
+                        className="font-mono text-xs px-2.5 py-1 rounded-md border border-zinc-200/80 dark:border-zinc-800/80 bg-white/70 dark:bg-zinc-900/50 text-zinc-700 dark:text-zinc-300 backdrop-blur-xs motion-safe:transition-all hover:border-zinc-300 dark:hover:border-zinc-700 hover:text-zinc-950 dark:hover:text-zinc-50 hover:bg-white dark:hover:bg-zinc-900 shadow-2xs"
+                      >
+                        {skill}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </ScrollReveal>
             ))}
           </div>
         </Section>
@@ -87,11 +94,12 @@ export function Portfolio({ content, lang, headerActions }: PortfolioProps) {
         <Section id="experience" title={content.experience.title}>
           <div className="flex flex-col">
             {content.experience.items.map((exp, idx) => (
-              <ExperienceItem
-                key={idx}
-                item={exp}
-                isLast={idx === content.experience.items.length - 1}
-              />
+              <ScrollReveal key={idx} delay={idx * 70}>
+                <ExperienceItem
+                  item={exp}
+                  isLast={idx === content.experience.items.length - 1}
+                />
+              </ScrollReveal>
             ))}
           </div>
         </Section>
@@ -99,14 +107,13 @@ export function Portfolio({ content, lang, headerActions }: PortfolioProps) {
         <Section id="education" title={content.education.title}>
           <div className="space-y-3">
             {content.education.items.map((edu, idx) => (
-              <div
-                key={idx}
-                className="p-5 rounded-xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/70 dark:bg-zinc-900/40 backdrop-blur-xs shadow-[inset_0_1px_0_0_rgba(255,255,255,0.7)] dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.04)] motion-safe:transition-all duration-200 hover:border-zinc-300 dark:hover:border-zinc-700 hover:shadow-xs"
-              >
-                <p className="text-sm font-medium text-zinc-800 dark:text-zinc-200 leading-relaxed text-pretty max-w-prose">
-                  {edu.text}
-                </p>
-              </div>
+              <ScrollReveal key={idx} delay={idx * 70}>
+                <div className="p-5 rounded-xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/70 dark:bg-zinc-900/40 backdrop-blur-xs shadow-[inset_0_1px_0_0_rgba(255,255,255,0.7)] dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.04)] motion-safe:transition-all duration-200 hover:border-zinc-300 dark:hover:border-zinc-700 hover:shadow-xs">
+                  <p className="text-sm font-medium text-zinc-800 dark:text-zinc-200 leading-relaxed text-pretty max-w-prose">
+                    {edu.text}
+                  </p>
+                </div>
+              </ScrollReveal>
             ))}
           </div>
         </Section>
