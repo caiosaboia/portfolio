@@ -7,7 +7,36 @@ interface ProjectCardProps {
 
 export function ProjectCard({ project }: ProjectCardProps) {
   return (
-    <article className="group relative rounded-xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/70 dark:bg-zinc-900/40 p-5 sm:p-6 backdrop-blur-xs shadow-[inset_0_1px_0_0_rgba(255,255,255,0.7)] dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.04)] motion-safe:transition-all duration-300 motion-safe:hover:-translate-y-1 hover:border-zinc-300 dark:hover:border-zinc-600 hover:shadow-md hover:shadow-zinc-900/5 dark:hover:shadow-black/20 space-y-3.5 motion-safe:active:scale-[0.99]">
+    <article className="group relative rounded-xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/70 dark:bg-zinc-900/40 p-5 sm:p-6 backdrop-blur-xs shadow-[inset_0_1px_0_0_rgba(255,255,255,0.7)] dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.04)] motion-safe:transition-all duration-300 motion-safe:hover:-translate-y-1 hover:border-zinc-300 dark:hover:border-zinc-600 hover:shadow-xl hover:shadow-zinc-950/5 dark:hover:shadow-black/30 space-y-4 motion-safe:active:scale-[0.99]">
+      {project.media && (
+        <div className="relative overflow-hidden rounded-lg border border-zinc-200/70 dark:border-zinc-800/80 bg-zinc-950/30 dark:bg-zinc-950/70 aspect-video group/media">
+          {project.media.type === "video" ? (
+            <video
+              src={project.media.src}
+              poster={project.media.poster}
+              autoPlay
+              loop
+              muted
+              playsInline
+              aria-label={project.media.alt}
+              className="w-full h-full object-cover object-top motion-safe:transition-transform duration-500 ease-out group-hover:scale-105"
+            />
+          ) : (
+            /* eslint-disable-next-line @next/next/no-img-element */
+            <img
+              src={project.media.src}
+              alt={project.media.alt}
+              loading="lazy"
+              className="w-full h-full object-cover object-top motion-safe:transition-transform duration-500 ease-out group-hover:scale-105"
+            />
+          )}
+          <div
+            className="pointer-events-none absolute inset-0 bg-gradient-to-t from-zinc-950/60 via-zinc-950/10 to-transparent opacity-40 group-hover:opacity-20 motion-safe:transition-opacity duration-300"
+            aria-hidden="true"
+          />
+        </div>
+      )}
+
       <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1.5">
         <h3 className="text-base sm:text-lg font-mono font-semibold tracking-tight text-zinc-900 dark:text-zinc-100 group-hover:text-black dark:group-hover:text-white transition-colors">
           {project.title}

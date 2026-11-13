@@ -42,6 +42,11 @@ export const enContent: Content = {
         description: "Terminal navigator and session inspector for Antigravity CLI and Claude Code in 100% Pure Rust, featuring an interactive Ratatui TUI, universal shell integration, and zero runtime dependencies.",
         highlight: "100% Pure Rust, interactive Ratatui TUI, and dual Antigravity / Claude Code support",
         tags: ["Rust", "CLI", "Ratatui", "TUI", "Developer Tools", "Open Source"],
+        media: {
+          type: "image",
+          src: "/projects/agy-brain-demo.gif",
+          alt: "Interactive TUI demo and session inspection of agy-brain",
+        },
         links: [
           { label: "GitHub Repository", url: "https://github.com/caiosaboia/agy-brain" },
         ],
@@ -51,6 +56,11 @@ export const enContent: Content = {
         description: "Asynchronous Python ETL pipeline for ingesting, transforming, and exporting official match and athlete records from the International Judo Federation (IJF).",
         highlight: "Asynchronous pipeline with httpx and columnar Parquet export",
         tags: ["Python", "Async Ingestion", "pandas", "Parquet", "SQLite", "SQL DDL"],
+        media: {
+          type: "image",
+          src: "/projects/judo-data-banner.jpg",
+          alt: "Architecture banner for the judo_data ETL pipeline",
+        },
         links: [
           { label: "GitHub Repository", url: "https://github.com/caiosaboia/judo_data" },
         ],
@@ -60,6 +70,11 @@ export const enContent: Content = {
         description: "Judo analytics and predictive modeling platform featuring machine learning classifiers, dynamic Elo and Bayesian Glicko-2 ratings, and an interactive web simulator.",
         highlight: "ROC-AUC 0.7289 with LightGBM over 184,949 analyzed matches",
         tags: ["Machine Learning", "LightGBM", "Random Forest", "Glicko-2", "Streamlit", "Docker"],
+        media: {
+          type: "image",
+          src: "/projects/ml-judo-roc-curve.png",
+          alt: "ROC curve of the ml-judo predictive classifier with AUC 0.7289",
+        },
         links: [
           { label: "GitHub Repository", url: "https://github.com/caiosaboia/ml-judo" },
         ],

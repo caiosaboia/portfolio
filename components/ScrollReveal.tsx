@@ -47,10 +47,10 @@ export function ScrollReveal({
       style={{
         transitionDelay: isIntersecting && delay > 0 ? `${delay}ms` : "0ms",
       }}
-      className={`motion-safe:transition-all motion-safe:duration-500 ease-out will-change-transform ${
+      className={`motion-safe:transition-all motion-safe:duration-500 ease-out will-change-[transform,opacity,filter] ${
         isIntersecting
-          ? "opacity-100 translate-y-0 scale-100"
-          : "opacity-0 translate-y-6 scale-[0.98] pointer-events-none"
+          ? "opacity-100 translate-y-0 scale-100 blur-none"
+          : "opacity-0 translate-y-6 scale-[0.98] blur-[2px] pointer-events-none"
       } ${className}`}
     >
       {children}

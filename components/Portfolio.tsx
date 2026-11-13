@@ -7,6 +7,7 @@ import { ExperienceItem } from "./ExperienceItem";
 import { ScrollCraftProgress } from "./ScrollCraftProgress";
 import { ScrollSpyNav } from "./ScrollSpyNav";
 import { ScrollReveal } from "./ScrollReveal";
+import { AmbientLighting } from "./AmbientLighting";
 
 export interface PortfolioProps {
   content: Content;
@@ -28,10 +29,7 @@ export function Portfolio({ content, lang, headerActions }: PortfolioProps) {
   return (
     <div className="relative min-h-screen bg-zinc-50 dark:bg-zinc-950 text-zinc-800 dark:text-zinc-200 antialiased selection:bg-zinc-900 selection:text-zinc-50 dark:selection:bg-zinc-100 dark:selection:text-zinc-900 motion-safe:transition-colors overflow-x-clip">
       <ScrollCraftProgress />
-      <div
-        className="pointer-events-none fixed inset-x-0 top-0 h-96 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(120,119,198,0.06),transparent)] dark:bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(120,119,198,0.12),transparent)]"
-        aria-hidden="true"
-      />
+      <AmbientLighting />
       <a
         href="#main-content"
         className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:rounded-md focus:bg-zinc-900 focus:text-zinc-50 dark:focus:bg-zinc-100 dark:focus:text-zinc-900 focus:ring-2 focus:ring-zinc-400 font-mono text-xs shadow-lg"

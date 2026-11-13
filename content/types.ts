@@ -8,12 +8,21 @@ export interface ProjectLink {
   url: string;
 }
 
+export interface ProjectMedia {
+  type: "image" | "video";
+  src: string;
+  alt: string;
+  poster?: string;
+  aspectRatio?: "16/9" | "4/3";
+}
+
 export interface ProjectCardData {
   title: string;
   description: string;
   highlight: string;
   tags: string[];
   links: ProjectLink[];
+  media?: ProjectMedia;
 }
 
 export interface SkillCategory {

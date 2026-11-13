@@ -65,9 +65,14 @@ describe("T5 — Projects Section and ProjectCard", () => {
     expect(screen.getByText(/ROC-AUC 0.7289/)).toBeInTheDocument();
   });
 
-  it("renders no img elements adhering to AC-11.4", () => {
+  it("renders accessible rich media previews (img/video) adhering to updated AC-07 and AD-031", () => {
     const { container } = render(<Portfolio content={ptContent} lang="pt" />);
-    const images = container.querySelectorAll("img");
-    expect(images).toHaveLength(0);
+    const images = container.querySelectorAll("section#projects img");
+    expect(images).toHaveLength(3);
+
+    for (const img of Array.from(images)) {
+      expect(img.getAttribute("alt")).toBeTruthy();
+      expect(img.getAttribute("src")).toBeTruthy();
+    }
   });
 });

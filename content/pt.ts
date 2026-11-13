@@ -42,6 +42,11 @@ export const ptContent: Content = {
         description: "Navegador de terminal e inspetor de sessões para Antigravity CLI e Claude Code em Rust puro, com TUI interativa em Ratatui, integração universal com shells e zero dependências de runtime.",
         highlight: "100% Pure Rust, TUI interativa em Ratatui e suporte a Antigravity e Claude Code",
         tags: ["Rust", "CLI", "Ratatui", "TUI", "Developer Tools", "Open Source"],
+        media: {
+          type: "image",
+          src: "/projects/agy-brain-demo.gif",
+          alt: "Demonstração da interface TUI e navegação do agy-brain",
+        },
         links: [
           { label: "Repositório GitHub", url: "https://github.com/caiosaboia/agy-brain" },
         ],
@@ -51,6 +56,11 @@ export const ptContent: Content = {
         description: "Pipeline ETL assíncrono em Python para ingestão, limpeza e exportação de dados oficiais de competições e atletas da Federação Internacional de Judô (IJF).",
         highlight: "Pipeline assíncrono com httpx e exportação colunar Parquet",
         tags: ["Python", "Ingestão Assíncrona", "pandas", "Parquet", "SQLite", "SQL DDL"],
+        media: {
+          type: "image",
+          src: "/projects/judo-data-banner.jpg",
+          alt: "Banner da pipeline de extração e processamento judo_data",
+        },
         links: [
           { label: "Repositório GitHub", url: "https://github.com/caiosaboia/judo_data" },
         ],
@@ -60,6 +70,11 @@ export const ptContent: Content = {
         description: "Plataforma analítica e preditiva para judô com classificadores de machine learning, sistemas de rating Elo e Glicko-2 bayesiano e simulador web interativo.",
         highlight: "ROC-AUC 0,7289 com LightGBM e 184.949 lutas analisadas",
         tags: ["Machine Learning", "LightGBM", "Random Forest", "Glicko-2", "Streamlit", "Docker"],
+        media: {
+          type: "image",
+          src: "/projects/ml-judo-roc-curve.png",
+          alt: "Curva ROC do modelo preditivo ml-judo com AUC 0,7289",
+        },
         links: [
           { label: "Repositório GitHub", url: "https://github.com/caiosaboia/ml-judo" },
         ],
