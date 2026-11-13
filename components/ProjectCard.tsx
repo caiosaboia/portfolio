@@ -14,6 +14,18 @@ export function ProjectCard({ project }: ProjectCardProps) {
     ? project.gallery[activeGalleryIndex] || project.gallery[0]
     : project.media;
 
+  const handlePrev = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (!project.gallery || project.gallery.length <= 1) return;
+    setActiveGalleryIndex((prev) => (prev - 1 + project.gallery!.length) % project.gallery!.length);
+  };
+
+  const handleNext = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (!project.gallery || project.gallery.length <= 1) return;
+    setActiveGalleryIndex((prev) => (prev + 1) % project.gallery!.length);
+  };
+
   return (
     <article className="group relative rounded-xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/70 dark:bg-zinc-900/40 p-5 sm:p-6 backdrop-blur-xs shadow-[inset_0_1px_0_0_rgba(255,255,255,0.7)] dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.04)] motion-safe:transition-all duration-300 motion-safe:hover:-translate-y-1 hover:border-zinc-300 dark:hover:border-zinc-600 hover:shadow-xl hover:shadow-zinc-950/5 dark:hover:shadow-black/30 space-y-4 motion-safe:active:scale-[0.99]">
       {activeMedia && (
@@ -55,6 +67,34 @@ export function ProjectCard({ project }: ProjectCardProps) {
                   {activeMedia.caption}
                 </p>
               </div>
+            )}
+
+            {project.gallery && project.gallery.length > 1 && (
+              <>
+                <button
+                  type="button"
+                  onClick={handlePrev}
+                  aria-label="Gráfico anterior"
+                  title="Gráfico anterior"
+                  className="absolute left-2 sm:left-3 top-1/2 -translate-y-1/2 z-10 p-1.5 sm:p-2 rounded-full bg-zinc-950/60 hover:bg-zinc-950/90 text-white/80 hover:text-white border border-white/10 backdrop-blur-xs shadow-md transition-all duration-200 opacity-70 sm:opacity-0 sm:group-hover/media:opacity-100 cursor-pointer focus-visible:opacity-100 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white/50 active:scale-95"
+                >
+                  <svg className="size-3.5 sm:size-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5} aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                  </svg>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={handleNext}
+                  aria-label="Próximo gráfico"
+                  title="Próximo gráfico"
+                  className="absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 z-10 p-1.5 sm:p-2 rounded-full bg-zinc-950/60 hover:bg-zinc-950/90 text-white/80 hover:text-white border border-white/10 backdrop-blur-xs shadow-md transition-all duration-200 opacity-70 sm:opacity-0 sm:group-hover/media:opacity-100 cursor-pointer focus-visible:opacity-100 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white/50 active:scale-95"
+                >
+                  <svg className="size-3.5 sm:size-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5} aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                  </svg>
+                </button>
+              </>
             )}
           </div>
 

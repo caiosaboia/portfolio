@@ -110,4 +110,46 @@ describe("T5 — Projects Section and ProjectCard", () => {
       screen.getByText(/Série temporal da trajetória e variação de rating/)
     ).toBeInTheDocument();
   });
+
+  it("navigates cyclically through gallery plots using discrete lateral arrows adhering to AD-035", async () => {
+    const { fireEvent } = await import("@testing-library/react");
+    render(<Portfolio content={ptContent} lang="pt" />);
+
+    const prevButton = screen.getByRole("button", { name: "Gráfico anterior" });
+    const nextButton = screen.getByRole("button", { name: "Próximo gráfico" });
+
+    expect(prevButton).toBeInTheDocument();
+    expect(nextButton).toBeInTheDocument();
+
+    const tabs = screen.getAllByRole("tab");
+    expect(tabs[0]).toHaveAttribute("aria-selected", "true");
+
+    // Click next -> advances to plot 2 (Evolução Elo)
+    fireEvent.click(nextButton);
+    expect(tabs[1]).toHaveAttribute("aria-selected", "true");
+    expect(
+      screen.getByText(/Série temporal da trajetória e variação de rating/)
+    ).toBeInTheDocument();
+
+    // Click prev from plot 2 -> goes back to plot 1 (Curva ROC)
+    fireEvent.click(prevButton);
+    expect(tabs[0]).toHaveAttribute("aria-selected", "true");
+    expect(
+      screen.getByText(/Desempenho preditivo do classificador LightGBM/)
+    ).toBeInTheDocument();
+
+    // Click prev from plot 1 -> wraps cyclically to plot 5 (Top 10 Atletas)
+    fireEvent.click(prevButton);
+    expect(tabs[4]).toHaveAttribute("aria-selected", "true");
+    expect(
+      screen.getByText(/Ranking dos 10 maiores índices de rating/)
+    ).toBeInTheDocument();
+
+    // Click next from plot 5 -> wraps cyclically to plot 1 (Curva ROC)
+    fireEvent.click(nextButton);
+    expect(tabs[0]).toHaveAttribute("aria-selected", "true");
+    expect(
+      screen.getByText(/Desempenho preditivo do classificador LightGBM/)
+    ).toBeInTheDocument();
+  });
 });
