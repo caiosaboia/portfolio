@@ -86,7 +86,7 @@ describe("T7 — Internationalization & Language Routing", () => {
 
     it("renders fallback links on RootHomePage for non-JS / noscript environments", () => {
       render(<RootHomePage />);
-      const ptLinks = screen.getAllByRole("link", { name: /Portugues/i });
+      const ptLinks = screen.getAllByRole("link", { name: /Portugu[eê]s/i });
       const enLinks = screen.getAllByRole("link", { name: /English/i });
 
       expect(ptLinks.length).toBeGreaterThan(0);

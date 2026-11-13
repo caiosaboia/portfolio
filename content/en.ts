@@ -3,16 +3,18 @@ import { Content } from "./types";
 export const enContent: Content = {
   meta: {
     title: "Caio Saboia — Portfolio",
-    description: "Data Scientist focusing on Data Engineering, GenAI, LLM, and RAG systems.",
+    description: "AI Engineer and Data Scientist focusing on Data Engineering, GenAI, LLM, and RAG systems.",
   },
   header: {
     name: "Caio Saboia",
-    headline: "Data Scientist | GenAI | LLM | CrewAI | LLM Evaluate | RAG | SQL | Judoka",
+    headline: "AI Engineer | Data Scientist | GenAI | LLM | CrewAI | LangGraph | LLM Evaluate | RAG | SQL | Judoka",
     tags: [
+      "AI Engineer",
       "Data Scientist",
       "GenAI",
       "LLM",
       "CrewAI",
+      "LangGraph",
       "LLM Evaluate",
       "RAG",
       "SQL",
@@ -35,6 +37,15 @@ export const enContent: Content = {
   projects: {
     title: "Projects",
     items: [
+      {
+        title: "agy-brain",
+        description: "Terminal navigator and session inspector for Antigravity CLI and Claude Code in 100% Pure Rust, featuring an interactive Ratatui TUI, universal shell integration, and zero runtime dependencies.",
+        highlight: "100% Pure Rust, interactive Ratatui TUI, and dual Antigravity / Claude Code support",
+        tags: ["Rust", "CLI", "Ratatui", "TUI", "Developer Tools", "Open Source"],
+        links: [
+          { label: "GitHub Repository", url: "https://github.com/caiosaboia/agy-brain" },
+        ],
+      },
       {
         title: "judo_data",
         description: "Asynchronous Python ETL pipeline for ingesting, transforming, and exporting official match and athlete records from the International Judo Federation (IJF).",
@@ -69,7 +80,7 @@ export const enContent: Content = {
     categories: [
       {
         name: "Languages & Tools",
-        skills: ["Python", "SQL", "TypeScript", "R Language", "Neovim", "Git", "Docker", "Astral uv", "GNU Linux"],
+        skills: ["Python", "SQL", "Rust", "TypeScript", "R Language", "Neovim", "Git", "Docker", "Astral uv", "GNU Linux"],
       },
       {
         name: "Data Engineering",

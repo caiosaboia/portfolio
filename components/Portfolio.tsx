@@ -4,6 +4,8 @@ import { Header } from "./Header";
 import { Section } from "./Section";
 import { ProjectCard } from "./ProjectCard";
 import { ExperienceItem } from "./ExperienceItem";
+import { ScrollCraftProgress } from "./ScrollCraftProgress";
+import { ScrollSpyNav } from "./ScrollSpyNav";
 
 export interface PortfolioProps {
   content: Content;
@@ -12,10 +14,19 @@ export interface PortfolioProps {
 }
 
 export function Portfolio({ content, lang, headerActions }: PortfolioProps) {
-  const skipText = lang === "pt" ? "Pular para o conteudo principal" : "Skip to main content";
+  const skipText = lang === "pt" ? "Pular para o conteúdo principal" : "Skip to main content";
+
+  const sectionLabels = {
+    about: content.about.title,
+    projects: content.projects.title,
+    skills: content.skills.title,
+    experience: content.experience.title,
+    education: content.education.title,
+  };
 
   return (
-    <div className="relative min-h-screen bg-zinc-50 dark:bg-zinc-950 text-zinc-800 dark:text-zinc-200 antialiased selection:bg-zinc-900 selection:text-zinc-50 dark:selection:bg-zinc-100 dark:selection:text-zinc-900 motion-safe:transition-colors">
+    <div className="relative min-h-screen bg-zinc-50 dark:bg-zinc-950 text-zinc-800 dark:text-zinc-200 antialiased selection:bg-zinc-900 selection:text-zinc-50 dark:selection:bg-zinc-100 dark:selection:text-zinc-900 motion-safe:transition-colors overflow-x-clip">
+      <ScrollCraftProgress />
       <div
         className="pointer-events-none fixed inset-x-0 top-0 h-96 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(120,119,198,0.06),transparent)] dark:bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(120,119,198,0.12),transparent)]"
         aria-hidden="true"
@@ -26,7 +37,7 @@ export function Portfolio({ content, lang, headerActions }: PortfolioProps) {
       >
         {skipText}
       </a>
-      <main id="main-content" className="relative max-w-3xl mx-auto px-5 sm:px-8 py-12 sm:py-16">
+      <main id="main-content" className="relative max-w-3xl mx-auto px-5 sm:px-8 py-12 sm:py-20">
         <Header
           name={content.header.name}
           headline={content.header.headline}
@@ -100,6 +111,8 @@ export function Portfolio({ content, lang, headerActions }: PortfolioProps) {
           </div>
         </Section>
       </main>
+
+      <ScrollSpyNav lang={lang} sectionLabels={sectionLabels} />
     </div>
   );
 }

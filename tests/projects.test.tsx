@@ -6,15 +6,16 @@ import { ptContent } from "../content/pt";
 import { enContent } from "../content/en";
 
 describe("T5 — Projects Section and ProjectCard", () => {
-  it("renders exactly three project cards with required data adhering to AC-07.1 and AC-07.2", () => {
+  it("renders exactly four project cards with required data adhering to AC-07.1 and AC-07.2", () => {
     const { container } = render(<Portfolio content={ptContent} lang="pt" />);
     const articles = container.querySelectorAll("section#projects article");
-    expect(articles).toHaveLength(3);
+    expect(articles).toHaveLength(4);
 
     const titles = Array.from(articles).map(
       (a) => a.querySelector("h3")?.textContent
     );
     expect(titles).toEqual([
+      "agy-brain",
       "judo_data",
       "ml-judo",
       "Judo Matchs IJF Dataset",
@@ -33,13 +34,17 @@ describe("T5 — Projects Section and ProjectCard", () => {
   it("links to exact external URLs adhering to AC-07.3", () => {
     render(<Portfolio content={ptContent} lang="pt" />);
 
-    const githubLinks = screen.getAllByRole("link", { name: "Repositorio GitHub" });
-    expect(githubLinks).toHaveLength(2);
+    const githubLinks = screen.getAllByRole("link", { name: "Repositório GitHub" });
+    expect(githubLinks).toHaveLength(3);
     expect(githubLinks[0]).toHaveAttribute(
+      "href",
+      "https://github.com/caiosaboia/agy-brain"
+    );
+    expect(githubLinks[1]).toHaveAttribute(
       "href",
       "https://github.com/caiosaboia/judo_data"
     );
-    expect(githubLinks[1]).toHaveAttribute(
+    expect(githubLinks[2]).toHaveAttribute(
       "href",
       "https://github.com/caiosaboia/ml-judo"
     );

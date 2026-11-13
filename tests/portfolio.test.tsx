@@ -19,8 +19,8 @@ describe("Portfolio Component & Section Ordering", () => {
       "Sobre",
       "Projetos",
       "Habilidades",
-      "Experiencia",
-      "Formacao",
+      "Experiência",
+      "Formação",
     ]);
 
     const sections = container.querySelectorAll("section");

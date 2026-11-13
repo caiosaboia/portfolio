@@ -20,9 +20,11 @@ describe("T4 — Header, About and Skills Sections", () => {
     const ptHeader = ptContainer.querySelector("header");
     expect(ptHeader).not.toBeNull();
     expect(
-      screen.getByText("Data Scientist | GenAI | LLM | CrewAI | LLM Evaluate | RAG | SQL | Judoca")
+      screen.getByText("AI Engineer | Data Scientist | GenAI | LLM | CrewAI | LangGraph | LLM Evaluate | RAG | SQL | Judoca")
     ).toBeInTheDocument();
+    expect(ptHeader?.textContent).toContain("AI Engineer");
     expect(ptHeader?.textContent).toContain("Data Scientist");
+    expect(ptHeader?.textContent).toContain("LangGraph");
     expect(ptHeader?.textContent).toContain("CrewAI");
     expect(ptHeader?.textContent).toContain("LLM Evaluate");
     expect(ptHeader?.textContent).toContain("Judoca");
@@ -34,8 +36,10 @@ describe("T4 — Header, About and Skills Sections", () => {
     const enHeader = enContainer.querySelector("header");
     expect(enHeader).not.toBeNull();
     expect(
-      screen.getByText("Data Scientist | GenAI | LLM | CrewAI | LLM Evaluate | RAG | SQL | Judoka")
+      screen.getByText("AI Engineer | Data Scientist | GenAI | LLM | CrewAI | LangGraph | LLM Evaluate | RAG | SQL | Judoka")
     ).toBeInTheDocument();
+    expect(enHeader?.textContent).toContain("AI Engineer");
+    expect(enHeader?.textContent).toContain("LangGraph");
     expect(enHeader?.textContent).toContain("Judoka");
   });
 

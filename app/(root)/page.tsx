@@ -9,7 +9,7 @@ export default function RootHomePage() {
         <div className="space-y-4 max-w-md p-8 rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/70 dark:bg-zinc-900/50 backdrop-blur-xs">
           <h1 className="text-2xl font-bold tracking-tight font-mono">Caio Saboia</h1>
           <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed text-pretty">
-            Redirecionando para a versao de idioma recomendada... / Redirecting to your preferred language...
+            Redirecionando para a versão de idioma recomendada... / Redirecting to your preferred language...
           </p>
           <noscript>
             <div className="pt-2 flex justify-center gap-4">
@@ -17,7 +17,7 @@ export default function RootHomePage() {
                 href="/pt/"
                 className="text-xs font-mono font-medium underline underline-offset-4"
               >
-                Versao em Portugues
+                Versão em Português
               </Link>
               <Link
                 href="/en/"
@@ -32,7 +32,7 @@ export default function RootHomePage() {
               href="/pt/"
               className="px-3 py-1.5 rounded-md border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-zinc-700 dark:text-zinc-300 hover:border-zinc-300 dark:hover:border-zinc-700 hover:text-zinc-950 dark:hover:text-zinc-50 transition-colors"
             >
-              [PT] Continuar em Portugues
+              [PT] Continuar em Português
             </Link>
             <Link
               href="/en/"

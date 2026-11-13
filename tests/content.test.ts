@@ -64,26 +64,30 @@ describe("Content Integrity & Parity", () => {
 
   it("has exact headlines adhering to AC-05.2", () => {
     expect(ptContent.header.headline).toBe(
-      "Data Scientist | GenAI | LLM | CrewAI | LLM Evaluate | RAG | SQL | Judoca"
+      "AI Engineer | Data Scientist | GenAI | LLM | CrewAI | LangGraph | LLM Evaluate | RAG | SQL | Judoca"
     );
     expect(enContent.header.headline).toBe(
-      "Data Scientist | GenAI | LLM | CrewAI | LLM Evaluate | RAG | SQL | Judoka"
+      "AI Engineer | Data Scientist | GenAI | LLM | CrewAI | LangGraph | LLM Evaluate | RAG | SQL | Judoka"
     );
     expect(ptContent.header.tags).toEqual([
+      "AI Engineer",
       "Data Scientist",
       "GenAI",
       "LLM",
       "CrewAI",
+      "LangGraph",
       "LLM Evaluate",
       "RAG",
       "SQL",
       "Judoca",
     ]);
     expect(enContent.header.tags).toEqual([
+      "AI Engineer",
       "Data Scientist",
       "GenAI",
       "LLM",
       "CrewAI",
+      "LangGraph",
       "LLM Evaluate",
       "RAG",
       "SQL",
@@ -104,11 +108,14 @@ describe("Content Integrity & Parity", () => {
   });
 
   it("has exact project links and highlights adhering to AC-07.1, 07.3 and 07.4", () => {
-    expect(ptContent.projects.items).toHaveLength(3);
-    expect(enContent.projects.items).toHaveLength(3);
+    expect(ptContent.projects.items).toHaveLength(4);
+    expect(enContent.projects.items).toHaveLength(4);
 
-    const [ptJudoData, ptMlJudo, ptKaggle] = ptContent.projects.items;
-    const [enJudoData, enMlJudo, enKaggle] = enContent.projects.items;
+    const [ptAgyBrain, ptJudoData, ptMlJudo, ptKaggle] = ptContent.projects.items;
+    const [enAgyBrain, enJudoData, enMlJudo, enKaggle] = enContent.projects.items;
+
+    expect(ptAgyBrain.links[0].url).toBe("https://github.com/caiosaboia/agy-brain");
+    expect(enAgyBrain.links[0].url).toBe("https://github.com/caiosaboia/agy-brain");
 
     expect(ptJudoData.links[0].url).toBe("https://github.com/caiosaboia/judo_data");
     expect(enJudoData.links[0].url).toBe("https://github.com/caiosaboia/judo_data");
@@ -129,7 +136,7 @@ describe("Content Integrity & Parity", () => {
 
   it("has exact education copy without years adhering to AC-09.1", () => {
     expect(ptContent.education.items[0].text).toBe(
-      "Bacharelado em Ciencia de Dados — Universidade Federal do Ceara (UFC), em andamento"
+      "Bacharelado em Ciência de Dados — Universidade Federal do Ceará (UFC), em andamento"
     );
     expect(enContent.education.items[0].text).toBe(
       "B.Sc. in Data Science — Federal University of Ceara (UFC), in progress"

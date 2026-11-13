@@ -3,16 +3,18 @@ import { Content } from "./types";
 export const ptContent: Content = {
   meta: {
     title: "Caio Saboia — Portfolio",
-    description: "Cientista de Dados focado em Engenharia de Dados, GenAI, LLM e RAG.",
+    description: "AI Engineer e Cientista de Dados focado em Engenharia de Dados, GenAI, LLM e RAG.",
   },
   header: {
     name: "Caio Saboia",
-    headline: "Data Scientist | GenAI | LLM | CrewAI | LLM Evaluate | RAG | SQL | Judoca",
+    headline: "AI Engineer | Data Scientist | GenAI | LLM | CrewAI | LangGraph | LLM Evaluate | RAG | SQL | Judoca",
     tags: [
+      "AI Engineer",
       "Data Scientist",
       "GenAI",
       "LLM",
       "CrewAI",
+      "LangGraph",
       "LLM Evaluate",
       "RAG",
       "SQL",
@@ -28,36 +30,45 @@ export const ptContent: Content = {
   about: {
     title: "Sobre",
     paragraphs: [
-      "Graduando em Ciencia de Dados pela Universidade Federal do Ceara (UFC), com atuacao voltada ao desenvolvimento de assistentes corporativos com LangGraph, agentes autonomos com CrewAI, recuperacao contextual (RAG) e engenharia de dados em larga escala.",
-      "Experiencia pratica na construcao de pipelines de ETL na GCP, persistencia em PostgreSQL e modelagem preditiva em Python. Apaixonado por desenvolvimento em terminal com Neovim, testes rigorosos com TDD e judoca ha mais de uma decada.",
+      "Graduando em Ciência de Dados pela Universidade Federal do Ceará (UFC), com atuação voltada ao desenvolvimento de assistentes corporativos com LangGraph, agentes autônomos com CrewAI, recuperação contextual (RAG) e engenharia de dados em larga escala.",
+      "Experiência prática na construção de pipelines de ETL na GCP, persistência em PostgreSQL e modelagem preditiva em Python. Apaixonado por desenvolvimento em terminal com Neovim, testes rigorosos com TDD e judoca há mais de uma década.",
     ],
   },
   projects: {
     title: "Projetos",
     items: [
       {
-        title: "judo_data",
-        description: "Pipeline ETL assincrono em Python para ingestao, limpeza e exportacao de dados oficiais de competicoes e atletas da Federacao Internacional de Judo (IJF).",
-        highlight: "Pipeline assincrono com httpx e exportacao colunar Parquet",
-        tags: ["Python", "Ingestao Assincrona", "pandas", "Parquet", "SQLite", "SQL DDL"],
+        title: "agy-brain",
+        description: "Navegador de terminal e inspetor de sessões para Antigravity CLI e Claude Code em Rust puro, com TUI interativa em Ratatui, integração universal com shells e zero dependências de runtime.",
+        highlight: "100% Pure Rust, TUI interativa em Ratatui e suporte a Antigravity e Claude Code",
+        tags: ["Rust", "CLI", "Ratatui", "TUI", "Developer Tools", "Open Source"],
         links: [
-          { label: "Repositorio GitHub", url: "https://github.com/caiosaboia/judo_data" },
+          { label: "Repositório GitHub", url: "https://github.com/caiosaboia/agy-brain" },
+        ],
+      },
+      {
+        title: "judo_data",
+        description: "Pipeline ETL assíncrono em Python para ingestão, limpeza e exportação de dados oficiais de competições e atletas da Federação Internacional de Judô (IJF).",
+        highlight: "Pipeline assíncrono com httpx e exportação colunar Parquet",
+        tags: ["Python", "Ingestão Assíncrona", "pandas", "Parquet", "SQLite", "SQL DDL"],
+        links: [
+          { label: "Repositório GitHub", url: "https://github.com/caiosaboia/judo_data" },
         ],
       },
       {
         title: "ml-judo",
-        description: "Plataforma analitica e preditiva para judo com classificadores de machine learning, sistemas de rating Elo e Glicko-2 bayesiano e simulador web interativo.",
+        description: "Plataforma analítica e preditiva para judô com classificadores de machine learning, sistemas de rating Elo e Glicko-2 bayesiano e simulador web interativo.",
         highlight: "ROC-AUC 0,7289 com LightGBM e 184.949 lutas analisadas",
         tags: ["Machine Learning", "LightGBM", "Random Forest", "Glicko-2", "Streamlit", "Docker"],
         links: [
-          { label: "Repositorio GitHub", url: "https://github.com/caiosaboia/ml-judo" },
+          { label: "Repositório GitHub", url: "https://github.com/caiosaboia/ml-judo" },
         ],
       },
       {
         title: "Judo Matchs IJF Dataset",
-        description: "Dataset publico publicado no Kaggle reunindo dados consolidados de combates, resultados, pontuacoes e perfis de atletas do circuito mundial da IJF.",
+        description: "Dataset público publicado no Kaggle reunindo dados consolidados de combates, resultados, pontuações e perfis de atletas do circuito mundial da IJF.",
         highlight: "184.949 lutas e 21.715 atletas ranqueados",
-        tags: ["Kaggle Dataset", "Judo", "Sports Analytics", "CSV", "Open Data"],
+        tags: ["Kaggle Dataset", "Judô", "Sports Analytics", "CSV", "Open Data"],
         links: [
           { label: "Dataset Kaggle", url: "https://www.kaggle.com/datasets/caiosaboia/judo-matchs-ijf-dataset" },
         ],
@@ -69,11 +80,11 @@ export const ptContent: Content = {
     categories: [
       {
         name: "Linguagens & Ferramentas",
-        skills: ["Python", "SQL", "TypeScript", "Linguagem R", "Neovim", "Git", "Docker", "Astral uv", "GNU Linux"],
+        skills: ["Python", "SQL", "Rust", "TypeScript", "Linguagem R", "Neovim", "Git", "Docker", "Astral uv", "GNU Linux"],
       },
       {
         name: "Engenharia de Dados",
-        skills: ["ETL/ELT", "Ingestao Assincrona", "Modelagem Relacional", "Data Warehousing", "PostgreSQL", "SQLite", "Google BigQuery", "Parquet", "GraphQL", "pandas"],
+        skills: ["ETL/ELT", "Ingestão Assíncrona", "Modelagem Relacional", "Data Warehousing", "PostgreSQL", "SQLite", "Google BigQuery", "Parquet", "GraphQL", "pandas"],
       },
       {
         name: "IA & Machine Learning",
@@ -86,33 +97,33 @@ export const ptContent: Content = {
     ],
   },
   experience: {
-    title: "Experiencia",
+    title: "Experiência",
     items: [
       {
         role: "Assistente de GenAI",
         organization: "Profectum",
         period: "jan. de 2026 - o momento",
-        summary: "Construcao de assistente de IA empresarial com LangGraph, Qdrant, FastAPI e Asana MCP com persistencia em PostgreSQL (SDD/TDD). Desenvolvimento de plataforma de auditoria de fornecedores via ETL em GraphQL, dashboards em Streamlit/Power BI e suite com mais de 500 testes em TDD.",
+        summary: "Construção de assistente de IA empresarial com LangGraph, Qdrant, FastAPI e Asana MCP com persistência em PostgreSQL (SDD/TDD). Desenvolvimento de plataforma de auditoria de fornecedores via ETL em GraphQL, dashboards em Streamlit/Power BI e suíte com mais de 500 testes em TDD.",
       },
       {
-        role: "Estagiario AI Developer",
+        role: "Estagiário AI Developer",
         organization: "Profectum",
         period: "ago. de 2025 - jan. de 2026",
-        summary: "Criacao de agentes autonomos utilizando CrewAI para analise de atendimento ao cliente, persistindo metricas no PostgreSQL para visualizacao no Power BI. Desenvolvimento de processos de ETL no GCP utilizando SQL avancado para dashboards complexos.",
+        summary: "Criação de agentes autônomos utilizando CrewAI para análise de atendimento ao cliente, persistindo métricas no PostgreSQL para visualização no Power BI. Desenvolvimento de processos de ETL no GCP utilizando SQL avançado para dashboards complexos.",
       },
       {
-        role: "Bolsista de Iniciacao Cientifica",
-        organization: "Universidade Federal do Ceara",
+        role: "Bolsista de Iniciação Científica",
+        organization: "Universidade Federal do Ceará",
         period: "mar. de 2024 - jul. de 2025",
-        summary: "Pesquisa em Complexidade Parametrizada em Grafos Cordais e Grafos Temporais com aplicacoes em matematica discreta e algoritmos exatos.",
+        summary: "Pesquisa em Complexidade Parametrizada em Grafos Cordais e Grafos Temporais com aplicações em matemática discreta e algoritmos exatos.",
       },
     ],
   },
   education: {
-    title: "Formacao",
+    title: "Formação",
     items: [
       {
-        text: "Bacharelado em Ciencia de Dados — Universidade Federal do Ceara (UFC), em andamento",
+        text: "Bacharelado em Ciência de Dados — Universidade Federal do Ceará (UFC), em andamento",
       },
     ],
   },
@@ -123,7 +134,7 @@ export const ptContent: Content = {
     languageSwitch: {
       targetLocale: "en",
       label: "EN",
-      ariaLabel: "Mudar para versao em ingles",
+      ariaLabel: "Mudar para versão em inglês",
     },
   },
 };

@@ -14,10 +14,10 @@ describe("T6 — Experience and Education Sections", () => {
     const roles = Array.from(items).map((it) => it.querySelector("h3")?.textContent);
     expect(roles[0]).toContain("Assistente de GenAI");
     expect(roles[0]).toContain("Profectum");
-    expect(roles[1]).toContain("Estagiario AI Developer");
+    expect(roles[1]).toContain("Estagiário AI Developer");
     expect(roles[1]).toContain("Profectum");
-    expect(roles[2]).toContain("Bolsista de Iniciacao Cientifica");
-    expect(roles[2]).toContain("Universidade Federal do Ceara");
+    expect(roles[2]).toContain("Bolsista de Iniciação Científica");
+    expect(roles[2]).toContain("Universidade Federal do Ceará");
 
     const periods = Array.from(items).map((it) => it.querySelector("time")?.textContent);
     expect(periods[0]).toBe("jan. de 2026 - o momento");
@@ -63,7 +63,7 @@ describe("T6 — Experience and Education Sections", () => {
     );
     const ptEdu = ptContainer.querySelector("section#education");
     expect(ptEdu).toHaveTextContent(
-      "Bacharelado em Ciencia de Dados — Universidade Federal do Ceara (UFC), em andamento"
+      "Bacharelado em Ciência de Dados — Universidade Federal do Ceará (UFC), em andamento"
     );
     expect(/\b\d{4}\b/.test(ptEdu?.textContent || "")).toBe(false);
     unmount();
