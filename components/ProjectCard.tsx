@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import { ProjectCardData } from "@/content";
 
 interface ProjectCardProps {
@@ -6,34 +8,85 @@ interface ProjectCardProps {
 }
 
 export function ProjectCard({ project }: ProjectCardProps) {
+  const [activeGalleryIndex, setActiveGalleryIndex] = useState(0);
+
+  const activeMedia = project.gallery && project.gallery.length > 0
+    ? project.gallery[activeGalleryIndex] || project.gallery[0]
+    : project.media;
+
   return (
     <article className="group relative rounded-xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/70 dark:bg-zinc-900/40 p-5 sm:p-6 backdrop-blur-xs shadow-[inset_0_1px_0_0_rgba(255,255,255,0.7)] dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.04)] motion-safe:transition-all duration-300 motion-safe:hover:-translate-y-1 hover:border-zinc-300 dark:hover:border-zinc-600 hover:shadow-xl hover:shadow-zinc-950/5 dark:hover:shadow-black/30 space-y-4 motion-safe:active:scale-[0.99]">
-      {project.media && (
-        <div className="relative overflow-hidden rounded-lg border border-zinc-200/70 dark:border-zinc-800/80 bg-zinc-950/30 dark:bg-zinc-950/70 aspect-video group/media">
-          {project.media.type === "video" ? (
-            <video
-              src={project.media.src}
-              poster={project.media.poster}
-              autoPlay
-              loop
-              muted
-              playsInline
-              aria-label={project.media.alt}
-              className="w-full h-full object-cover object-top motion-safe:transition-transform duration-500 ease-out group-hover:scale-105"
-            />
-          ) : (
-            /* eslint-disable-next-line @next/next/no-img-element */
-            <img
-              src={project.media.src}
-              alt={project.media.alt}
-              loading="lazy"
-              className="w-full h-full object-cover object-top motion-safe:transition-transform duration-500 ease-out group-hover:scale-105"
-            />
-          )}
+      {activeMedia && (
+        <div className="space-y-2.5">
           <div
-            className="pointer-events-none absolute inset-0 bg-gradient-to-t from-zinc-950/60 via-zinc-950/10 to-transparent opacity-40 group-hover:opacity-20 motion-safe:transition-opacity duration-300"
-            aria-hidden="true"
-          />
+            id={`panel-${project.title}`}
+            role={project.gallery && project.gallery.length > 1 ? "tabpanel" : undefined}
+            aria-labelledby={project.gallery && project.gallery.length > 1 ? `tab-${project.title}-${activeGalleryIndex}` : undefined}
+            className="relative overflow-hidden rounded-lg border border-zinc-200/70 dark:border-zinc-800/80 bg-zinc-950/30 dark:bg-zinc-950/70 aspect-video group/media"
+          >
+            {activeMedia.type === "video" ? (
+              <video
+                src={activeMedia.src}
+                poster={activeMedia.poster}
+                autoPlay
+                loop
+                muted
+                playsInline
+                aria-label={activeMedia.alt}
+                className="w-full h-full object-cover object-top motion-safe:transition-transform duration-500 ease-out group-hover:scale-105"
+              />
+            ) : (
+              /* eslint-disable-next-line @next/next/no-img-element */
+              <img
+                key={activeMedia.src}
+                src={activeMedia.src}
+                alt={activeMedia.alt}
+                loading="lazy"
+                className="w-full h-full object-cover object-top motion-safe:transition-transform duration-500 ease-out group-hover:scale-105"
+              />
+            )}
+            <div
+              className="pointer-events-none absolute inset-0 bg-gradient-to-t from-zinc-950/75 via-zinc-950/15 to-transparent opacity-60 group-hover:opacity-40 motion-safe:transition-opacity duration-300"
+              aria-hidden="true"
+            />
+            {activeMedia.caption && (
+              <div className="absolute inset-x-0 bottom-0 p-2.5 sm:p-3 pointer-events-none">
+                <p className="font-mono text-2xs sm:text-xs text-zinc-200 dark:text-zinc-200 leading-snug bg-zinc-950/75 backdrop-blur-xs px-2.5 py-1.5 rounded-md border border-white/10 max-w-fit shadow-xs">
+                  {activeMedia.caption}
+                </p>
+              </div>
+            )}
+          </div>
+
+          {project.gallery && project.gallery.length > 1 && (
+            <div
+              role="tablist"
+              aria-label={`Galeria analítica de ${project.title}`}
+              className="flex flex-wrap items-center gap-1.5 pt-0.5"
+            >
+              {project.gallery.map((item, idx) => {
+                const isActive = idx === activeGalleryIndex;
+                return (
+                  <button
+                    key={idx}
+                    type="button"
+                    role="tab"
+                    id={`tab-${project.title}-${idx}`}
+                    aria-selected={isActive}
+                    aria-controls={`panel-${project.title}`}
+                    onClick={() => setActiveGalleryIndex(idx)}
+                    className={`font-mono text-xs px-2.5 py-1 rounded-md border motion-safe:transition-all cursor-pointer ${
+                      isActive
+                        ? "bg-zinc-200/90 dark:bg-zinc-800 text-zinc-950 dark:text-zinc-50 border-zinc-400 dark:border-zinc-500 font-semibold shadow-xs"
+                        : "bg-zinc-100/70 dark:bg-zinc-900/60 text-zinc-600 dark:text-zinc-400 border-zinc-200/60 dark:border-zinc-800/60 hover:border-zinc-300 dark:hover:border-zinc-700 hover:text-zinc-900 dark:hover:text-zinc-200"
+                    }`}
+                  >
+                    {item.label || `Gráfico ${idx + 1}`}
+                  </button>
+                );
+              })}
+            </div>
+          )}
         </div>
       )}
 

@@ -12,6 +12,8 @@ export interface ProjectMedia {
   type: "image" | "video";
   src: string;
   alt: string;
+  label?: string;
+  caption?: string;
   poster?: string;
   aspectRatio?: "16/9" | "4/3";
 }
@@ -23,6 +25,7 @@ export interface ProjectCardData {
   tags: string[];
   links: ProjectLink[];
   media?: ProjectMedia;
+  gallery?: ProjectMedia[];
 }
 
 export interface SkillCategory {

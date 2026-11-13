@@ -75,4 +75,36 @@ describe("T5 — Projects Section and ProjectCard", () => {
       expect(img.getAttribute("src")).toBeTruthy();
     }
   });
+
+  it("renders 5 gallery tabs for ml-judo and switches active plot on click adhering to AD-032", async () => {
+    const { fireEvent } = await import("@testing-library/react");
+    render(<Portfolio content={ptContent} lang="pt" />);
+    const tabs = screen.getAllByRole("tab");
+    expect(tabs).toHaveLength(5);
+
+    const tabLabels = tabs.map((t) => t.textContent);
+    expect(tabLabels).toEqual([
+      "Curva ROC",
+      "Evolução Elo",
+      "Elo vs Winrate",
+      "Distribuição Elo",
+      "Top 10 Atletas",
+    ]);
+
+    // Initial state: first tab selected
+    expect(tabs[0]).toHaveAttribute("aria-selected", "true");
+    expect(tabs[1]).toHaveAttribute("aria-selected", "false");
+    expect(
+      screen.getByText(/Desempenho preditivo do classificador LightGBM/)
+    ).toBeInTheDocument();
+
+    // Click second tab (Evolução Elo)
+    fireEvent.click(tabs[1]);
+
+    expect(tabs[1]).toHaveAttribute("aria-selected", "true");
+    expect(tabs[0]).toHaveAttribute("aria-selected", "false");
+    expect(
+      screen.getByText(/Série temporal da trajetória e variação de rating/)
+    ).toBeInTheDocument();
+  });
 });
