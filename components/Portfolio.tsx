@@ -36,7 +36,7 @@ export function Portfolio({ content, lang, headerActions }: PortfolioProps) {
       >
         {skipText}
       </a>
-      <main id="main-content" className="relative max-w-3xl mx-auto px-5 sm:px-8 py-12 sm:py-20">
+      <main id="main-content" className="relative max-w-3xl mx-auto px-5 sm:px-8 pt-12 sm:pt-20 pb-32 sm:pb-40">
         <Header
           name={content.header.name}
           headline={content.header.headline}

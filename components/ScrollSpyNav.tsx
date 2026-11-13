@@ -22,8 +22,20 @@ export function ScrollSpyNav({ lang, sectionLabels }: ScrollSpyNavProps) {
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.scrollY + 200;
       setIsVisible(window.scrollY > 180);
+
+      // Check if page is scrollable and user has scrolled near or to the bottom
+      const scrollHeight = document.documentElement.scrollHeight;
+      const clientHeight = window.innerHeight;
+      const isScrollable = scrollHeight > clientHeight;
+      const isAtBottom = isScrollable && clientHeight + window.scrollY >= scrollHeight - 60;
+
+      if (isAtBottom) {
+        setActiveId("education");
+        return;
+      }
+
+      const scrollPosition = window.scrollY + 200;
 
       for (let i = SECTION_IDS.length - 1; i >= 0; i--) {
         const section = document.getElementById(SECTION_IDS[i]);
@@ -43,6 +55,7 @@ export function ScrollSpyNav({ lang, sectionLabels }: ScrollSpyNavProps) {
 
   const scrollTo = (id: string) => (e: React.MouseEvent) => {
     e.preventDefault();
+    setActiveId(id);
     const target = document.getElementById(id);
     if (target) {
       target.scrollIntoView({ behavior: "smooth" });

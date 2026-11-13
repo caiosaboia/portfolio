@@ -59,32 +59,34 @@ export function ProjectCard({ project }: ProjectCardProps) {
           </div>
 
           {project.gallery && project.gallery.length > 1 && (
-            <div
-              role="tablist"
-              aria-label={`Galeria analítica de ${project.title}`}
-              className="flex flex-wrap items-center gap-1.5 pt-0.5"
-            >
-              {project.gallery.map((item, idx) => {
-                const isActive = idx === activeGalleryIndex;
-                return (
-                  <button
-                    key={idx}
-                    type="button"
-                    role="tab"
-                    id={`tab-${project.title}-${idx}`}
-                    aria-selected={isActive}
-                    aria-controls={`panel-${project.title}`}
-                    onClick={() => setActiveGalleryIndex(idx)}
-                    className={`font-mono text-xs px-2.5 py-1 rounded-md border motion-safe:transition-all cursor-pointer ${
-                      isActive
-                        ? "bg-zinc-200/90 dark:bg-zinc-800 text-zinc-950 dark:text-zinc-50 border-zinc-400 dark:border-zinc-500 font-semibold shadow-xs"
-                        : "bg-zinc-100/70 dark:bg-zinc-900/60 text-zinc-600 dark:text-zinc-400 border-zinc-200/60 dark:border-zinc-800/60 hover:border-zinc-300 dark:hover:border-zinc-700 hover:text-zinc-900 dark:hover:text-zinc-200"
-                    }`}
-                  >
-                    {item.label || `Gráfico ${idx + 1}`}
-                  </button>
-                );
-              })}
+            <div className="flex justify-center pt-1">
+              <div
+                role="tablist"
+                aria-label={`Galeria analítica de ${project.title}`}
+                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-zinc-200/80 dark:border-zinc-800/80 bg-zinc-100/80 dark:bg-zinc-900/80 backdrop-blur-xs shadow-2xs"
+              >
+                {project.gallery.map((item, idx) => {
+                  const isActive = idx === activeGalleryIndex;
+                  return (
+                    <button
+                      key={idx}
+                      type="button"
+                      role="tab"
+                      id={`tab-${project.title}-${idx}`}
+                      aria-label={item.label || `Gráfico ${idx + 1}`}
+                      title={item.label || `Gráfico ${idx + 1}`}
+                      aria-selected={isActive}
+                      aria-controls={`panel-${project.title}`}
+                      onClick={() => setActiveGalleryIndex(idx)}
+                      className={`size-2.5 sm:size-3 rounded-full cursor-pointer motion-safe:transition-all duration-200 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-zinc-400 dark:focus-visible:ring-zinc-500 focus-visible:ring-offset-1 dark:focus-visible:ring-offset-zinc-950 ${
+                        isActive
+                          ? "bg-zinc-900 dark:bg-zinc-100 scale-125 shadow-xs"
+                          : "bg-zinc-300/80 dark:bg-zinc-700/80 hover:bg-zinc-400 dark:hover:bg-zinc-500"
+                      }`}
+                    />
+                  );
+                })}
+              </div>
             </div>
           )}
         </div>
