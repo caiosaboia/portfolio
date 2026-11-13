@@ -58,9 +58,27 @@ export const enContent: Content = {
         tags: ["Python", "Async Ingestion", "pandas", "Parquet", "SQLite", "SQL DDL"],
         media: {
           type: "image",
-          src: "/projects/judo-data-banner.jpg",
-          alt: "Architecture banner for the judo_data ETL pipeline",
+          src: "/projects/judo-data-demo.gif",
+          alt: "Live execution demo of the asynchronous judo_data ETL pipeline",
+          label: "Demo",
+          caption: "Execution of the asynchronous ETL pipeline with httpx and data processing",
         },
+        gallery: [
+          {
+            type: "image",
+            src: "/projects/judo-data-demo.gif",
+            alt: "Live execution demo of the asynchronous judo_data ETL pipeline",
+            label: "Demo",
+            caption: "Execution of the asynchronous ETL pipeline with httpx and data processing",
+          },
+          {
+            type: "image",
+            src: "/projects/judo-data-banner.jpg",
+            alt: "Architecture banner for the judo_data ETL pipeline",
+            label: "Architecture",
+            caption: "Architecture diagram and IJF data ingestion workflow",
+          },
+        ],
         links: [
           { label: "GitHub Repository", url: "https://github.com/caiosaboia/judo_data" },
         ],

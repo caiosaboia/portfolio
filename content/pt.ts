@@ -58,9 +58,27 @@ export const ptContent: Content = {
         tags: ["Python", "Ingestão Assíncrona", "pandas", "Parquet", "SQLite", "SQL DDL"],
         media: {
           type: "image",
-          src: "/projects/judo-data-banner.jpg",
-          alt: "Banner da pipeline de extração e processamento judo_data",
+          src: "/projects/judo-data-demo.gif",
+          alt: "Demonstração da pipeline ETL assíncrona do judo_data em execução",
+          label: "Demonstração",
+          caption: "Execução da pipeline ETL assíncrona com httpx e processamento de dados",
         },
+        gallery: [
+          {
+            type: "image",
+            src: "/projects/judo-data-demo.gif",
+            alt: "Demonstração da pipeline ETL assíncrona do judo_data em execução",
+            label: "Demonstração",
+            caption: "Execução da pipeline ETL assíncrona com httpx e processamento de dados",
+          },
+          {
+            type: "image",
+            src: "/projects/judo-data-banner.jpg",
+            alt: "Banner da pipeline de extração e processamento judo_data",
+            label: "Arquitetura",
+            caption: "Diagrama de arquitetura e fluxo de ingestão de dados da IJF",
+          },
+        ],
         links: [
           { label: "Repositório GitHub", url: "https://github.com/caiosaboia/judo_data" },
         ],

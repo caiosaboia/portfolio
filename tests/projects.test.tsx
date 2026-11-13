@@ -77,9 +77,12 @@ describe("T5 — Projects Section and ProjectCard", () => {
   });
 
   it("renders 5 gallery tabs for ml-judo and switches active plot on click adhering to AD-032 and AD-034", async () => {
-    const { fireEvent } = await import("@testing-library/react");
+    const { fireEvent, within } = await import("@testing-library/react");
     render(<Portfolio content={ptContent} lang="pt" />);
-    const tabs = screen.getAllByRole("tab");
+    const mlJudoTablist = screen.getByRole("tablist", {
+      name: "Galeria analítica de ml-judo",
+    });
+    const tabs = within(mlJudoTablist).getAllByRole("tab");
     expect(tabs).toHaveLength(5);
 
     const tabLabels = tabs.map((t) => t.getAttribute("aria-label"));
@@ -111,17 +114,53 @@ describe("T5 — Projects Section and ProjectCard", () => {
     ).toBeInTheDocument();
   });
 
-  it("navigates cyclically through gallery plots using discrete lateral arrows adhering to AD-035", async () => {
-    const { fireEvent } = await import("@testing-library/react");
+  it("renders 2 gallery tabs for judo_data and switches between demo and architecture banner adhering to AD-036", async () => {
+    const { fireEvent, within } = await import("@testing-library/react");
     render(<Portfolio content={ptContent} lang="pt" />);
+    const judoDataTablist = screen.getByRole("tablist", {
+      name: "Galeria analítica de judo_data",
+    });
+    const tabs = within(judoDataTablist).getAllByRole("tab");
+    expect(tabs).toHaveLength(2);
 
-    const prevButton = screen.getByRole("button", { name: "Gráfico anterior" });
-    const nextButton = screen.getByRole("button", { name: "Próximo gráfico" });
+    const tabLabels = tabs.map((t) => t.getAttribute("aria-label"));
+    expect(tabLabels).toEqual(["Demonstração", "Arquitetura"]);
 
-    expect(prevButton).toBeInTheDocument();
-    expect(nextButton).toBeInTheDocument();
+    // Initial state: demo selected
+    expect(tabs[0]).toHaveAttribute("aria-selected", "true");
+    expect(tabs[1]).toHaveAttribute("aria-selected", "false");
+    expect(
+      screen.getByText(/Execução da pipeline ETL assíncrona com httpx/)
+    ).toBeInTheDocument();
 
-    const tabs = screen.getAllByRole("tab");
+    // Click second tab (Arquitetura)
+    fireEvent.click(tabs[1]);
+
+    expect(tabs[1]).toHaveAttribute("aria-selected", "true");
+    expect(tabs[0]).toHaveAttribute("aria-selected", "false");
+    expect(
+      screen.getByText(/Diagrama de arquitetura e fluxo de ingestão de dados/)
+    ).toBeInTheDocument();
+  });
+
+  it("navigates cyclically through gallery plots using discrete lateral arrows adhering to AD-035", async () => {
+    const { fireEvent, within } = await import("@testing-library/react");
+    const { container } = render(<Portfolio content={ptContent} lang="pt" />);
+
+    // Get ml-judo article specifically
+    const articles = container.querySelectorAll("section#projects article");
+    const mlJudoArticle = Array.from(articles).find((a) =>
+      a.querySelector("h3")?.textContent?.includes("ml-judo")
+    ) as HTMLElement;
+    expect(mlJudoArticle).toBeDefined();
+
+    const prevButton = within(mlJudoArticle).getByRole("button", { name: "Gráfico anterior" });
+    const nextButton = within(mlJudoArticle).getByRole("button", { name: "Próximo gráfico" });
+
+    const mlJudoTablist = within(mlJudoArticle).getByRole("tablist", {
+      name: "Galeria analítica de ml-judo",
+    });
+    const tabs = within(mlJudoTablist).getAllByRole("tab");
     expect(tabs[0]).toHaveAttribute("aria-selected", "true");
 
     // Click next -> advances to plot 2 (Evolução Elo)
