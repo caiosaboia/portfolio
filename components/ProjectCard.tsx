@@ -34,7 +34,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
             id={`panel-${project.title}`}
             role={project.gallery && project.gallery.length > 1 ? "tabpanel" : undefined}
             aria-labelledby={project.gallery && project.gallery.length > 1 ? `tab-${project.title}-${activeGalleryIndex}` : undefined}
-            className="relative overflow-hidden rounded-lg border border-zinc-200/70 dark:border-zinc-800/80 bg-zinc-950/30 dark:bg-zinc-950/70 aspect-video group/media"
+            className="relative overflow-hidden rounded-lg border border-zinc-200/70 dark:border-zinc-800/80 bg-zinc-100/80 dark:bg-zinc-950/90 aspect-video group/media"
           >
             {activeMedia.type === "video" ? (
               <video
@@ -45,7 +45,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
                 muted
                 playsInline
                 aria-label={activeMedia.alt}
-                className="w-full h-full object-cover object-top motion-safe:transition-transform duration-500 ease-out group-hover:scale-105"
+                className="w-full h-full object-contain"
               />
             ) : (
               /* eslint-disable-next-line @next/next/no-img-element */
@@ -54,19 +54,8 @@ export function ProjectCard({ project }: ProjectCardProps) {
                 src={activeMedia.src}
                 alt={activeMedia.alt}
                 loading="lazy"
-                className="w-full h-full object-cover object-top motion-safe:transition-transform duration-500 ease-out group-hover:scale-105"
+                className="w-full h-full object-contain"
               />
-            )}
-            <div
-              className="pointer-events-none absolute inset-0 bg-gradient-to-t from-zinc-950/75 via-zinc-950/15 to-transparent opacity-60 group-hover:opacity-40 motion-safe:transition-opacity duration-300"
-              aria-hidden="true"
-            />
-            {activeMedia.caption && (
-              <div className="absolute inset-x-0 bottom-0 p-2.5 sm:p-3 pointer-events-none">
-                <p className="font-mono text-2xs sm:text-xs text-zinc-200 dark:text-zinc-200 leading-snug bg-zinc-950/75 backdrop-blur-xs px-2.5 py-1.5 rounded-md border border-white/10 max-w-fit shadow-xs">
-                  {activeMedia.caption}
-                </p>
-              </div>
             )}
 
             {project.gallery && project.gallery.length > 1 && (
@@ -97,6 +86,12 @@ export function ProjectCard({ project }: ProjectCardProps) {
               </>
             )}
           </div>
+
+          {activeMedia.caption && (
+            <p className="font-mono text-2xs sm:text-xs text-zinc-600 dark:text-zinc-400 leading-snug text-pretty">
+              {activeMedia.caption}
+            </p>
+          )}
 
           {project.gallery && project.gallery.length > 1 && (
             <div className="flex justify-center pt-1">

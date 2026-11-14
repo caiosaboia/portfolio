@@ -191,4 +191,36 @@ describe("T5 — Projects Section and ProjectCard", () => {
       screen.getByText(/Desempenho preditivo do classificador LightGBM/)
     ).toBeInTheDocument();
   });
+
+  it("frames all project media with object-contain without hover crop and renders captions outside the media panel adhering to AD-037", () => {
+    const { container } = render(<Portfolio content={ptContent} lang="pt" />);
+    const mediaElements = container.querySelectorAll(
+      "section#projects img, section#projects video"
+    );
+    expect(mediaElements.length).toBeGreaterThan(0);
+
+    for (const media of Array.from(mediaElements)) {
+      expect(media.className).toContain("object-contain");
+      expect(media.className).not.toContain("object-cover");
+      expect(media.className).not.toContain("group-hover:scale-105");
+    }
+
+    const panels = container.querySelectorAll('section#projects [id^="panel-"]');
+    expect(panels).toHaveLength(3);
+    for (const panel of Array.from(panels)) {
+      expect(panel.className).toContain("aspect-video");
+      expect(panel.className).toContain("bg-zinc-100/80");
+      expect(panel.className).toContain("dark:bg-zinc-950/90");
+    }
+
+    const judoDataCaption = screen.getByText(
+      /Execução da pipeline ETL assíncrona com httpx/
+    );
+    expect(judoDataCaption.closest('[id^="panel-"]')).toBeNull();
+
+    const mlJudoCaption = screen.getByText(
+      /Desempenho preditivo do classificador LightGBM/
+    );
+    expect(mlJudoCaption.closest('[id^="panel-"]')).toBeNull();
+  });
 });
