@@ -31,7 +31,7 @@ export const ptContent: Content = {
     title: "Sobre",
     paragraphs: [
       "Graduando em Ciência de Dados pela Universidade Federal do Ceará (UFC), com atuação voltada ao desenvolvimento de assistentes corporativos com LangGraph, agentes autônomos com CrewAI, recuperação contextual (RAG) e engenharia de dados em larga escala.",
-      "Experiência prática na construção de pipelines de ETL na GCP, persistência em PostgreSQL e modelagem preditiva em Python. Apaixonado por desenvolvimento em terminal com Neovim, testes rigorosos com TDD e judoca há mais de uma década.",
+      "Experiência prática na construção de pipelines de ETL na GCP, persistência em PostgreSQL e modelagem preditiva em Python. Apaixonado por desenvolvimento em terminal com Neovim, testes rigorosos com TDD e judoca.",
     ],
   },
   projects: {

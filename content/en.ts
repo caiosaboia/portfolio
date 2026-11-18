@@ -31,7 +31,7 @@ export const enContent: Content = {
     title: "About",
     paragraphs: [
       "B.Sc. student in Data Science at the Federal University of Ceara (UFC), focused on developing enterprise AI assistants with LangGraph, autonomous multi-agent systems with CrewAI, production RAG, and large-scale data engineering.",
-      "Hands-on experience building GCP data pipelines, PostgreSQL persistence, and predictive modeling in Python. Passionate about terminal-first workflows with Neovim, rigorous TDD, and a dedicated Judoka for over a decade.",
+      "Hands-on experience building GCP data pipelines, PostgreSQL persistence, and predictive modeling in Python. Passionate about terminal-first workflows with Neovim, rigorous TDD, and a dedicated Judoka.",
     ],
   },
   projects: {
